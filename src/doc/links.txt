@@ -1,0 +1,5 @@
+Ссылка на документацию CRA
+https://create-react-app.dev/
+
+Запустить проект на GithubPages
+https://create-react-app.dev/docs/deployment
