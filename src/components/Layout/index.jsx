@@ -1,12 +1,12 @@
 import React from "react";
-import Card from "../Card";
 
 import "./index.css";
 
 const Layout = ({
     mb = 1,
     dt = mb,
-    gap = "normal" // none=0 | small = 2rem | normal = 4rem
+    gap = "normal", // none=0 | small = 2rem | normal = 4rem
+    children
 }) => {
     let className = "layout";
     switch (mb) {
@@ -28,14 +28,7 @@ const Layout = ({
         default: className += "";
     }
     return <div className={className}>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        {children}
     </div>
 }
 

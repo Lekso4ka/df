@@ -3,3 +3,12 @@ https://create-react-app.dev/
 
 Запустить проект на GithubPages
 https://create-react-app.dev/docs/deployment
+
+Картинки jpg (фотки)
+https://unsplash.com/
+
+Картинки (10шт / день)
+https://www.freepik.com/
+
+Иконки png (10 | 50 / день)
+https://www.flaticon.com/
