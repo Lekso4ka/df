@@ -1,0 +1,35 @@
+.adds {
+    background-color: silver;
+    border-radius: 1rem;
+    padding: 0 2rem;
+    display: flex;
+    gap: 2rem;
+}
+.adds__text {
+    flex: 1;
+    display: grid;
+    gap: 1rem;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1;
+}
+.adds__img {
+    flex: 1;
+    background-size: contain;
+    background-position: calc(100% - 3rem) center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .3;
+}
+
+@media screen and (min-width: 1064px) {
+    .adds__img {
+        background-position: center;
+        opacity: 1;
+        position: static;
+        width: auto;
+        height: auto;
+    }
+}

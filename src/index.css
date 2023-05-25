@@ -24,6 +24,7 @@ ul {
 .menu {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 .menu>li {
     position: relative;
