@@ -20,6 +20,18 @@
 .layout_gap-small {
     gap: 2rem;
 }
+.layout__title {
+    font-size: 6rem;
+}
+.layout__title_2 {
+    grid-column: 1 / span 2;
+}
+.layout__title_3 {
+    grid-column: 1 / span 3;
+}
+.layout__title_4 {
+    grid-column: 1 / span 4;
+}
 
 @media screen and (min-width: 1064px) {
     .layout {
@@ -37,5 +49,14 @@
     }
     .layout_dt-4 {
         grid-template-columns: repeat(4, 1fr);
+    }
+    .layout__title_dt-2 {
+        grid-column: 1 / span 2;
+    }
+    .layout__title_dt-3 {
+        grid-column: 1 / span 3;
+    }
+    .layout__title_dt-4 {
+        grid-column: 1 / span 4;
     }
 }

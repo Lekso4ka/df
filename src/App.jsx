@@ -1,3 +1,4 @@
+import {useState, useEffect} from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import {
@@ -11,11 +12,33 @@ import {
     Profile,
     SingleProduct
 } from "./pages"
+import Main from "./context/main";
 
 import Layout from "./components/Layout";
 
 function App() {
-    return <>
+    const [news, setNews] = useState([]);
+    const [newsLenta, setNewsLenta] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://newsapi.org/v2/everything?q=собаки&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                setNews(data.articles.filter(el => el.source.name === "Techinsider.ru"));
+            })
+        fetch(`https://newsapi.org/v2/everything?q=собаки&sources=lenta&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                setNewsLenta(data.articles);
+            })
+    }, []);
+
+    const mainCtx = {
+        news,
+        newsLenta
+    }
+
+    return <Main.Provider value={mainCtx}>
         <Layout>
             <ul className="menu">
                 <li><Link to="/">Главная</Link></li>
@@ -34,6 +57,7 @@ function App() {
                 <li><Link to="/delivery">Доставка</Link></li>
                 <li><Link to="/about">О нас</Link></li>
             </ul>
+            <span>{process.env.REACT_APP_USER_NAME}</span>
         </Layout>
         <Routes>
             <Route path="/" element={<Home/>}/>
@@ -48,7 +72,7 @@ function App() {
             <Route path="/delivery" element={<Delivery/>}/>
             <Route path="/about" element={<About/>}/>
         </Routes>
-    </>
+    </Main.Provider>
 }
 
 export default App;

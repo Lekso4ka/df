@@ -6,6 +6,7 @@ const Layout = ({
     mb = 1,
     dt = mb,
     gap = "normal", // none=0 | small = 2rem | normal = 4rem
+    title,
     children
 }) => {
     let className = "layout";
@@ -28,6 +29,7 @@ const Layout = ({
         default: className += "";
     }
     return <div className={className}>
+        {title && <h2 className={`layout__title layout__title_${mb} layout__title_dt-${dt}`}>{title}</h2>}
         {children}
     </div>
 }
