@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/df/static/css/main.1a6738e6.css",
-    "main.js": "/df/static/js/main.dd248ea1.js",
+    "main.css": "/df/static/css/main.0af3e9eb.css",
+    "main.js": "/df/static/js/main.5003b3ae.js",
     "static/media/paws.jpg": "/df/static/media/paws.83e4309d232b63b20890.jpg",
     "static/media/puppy.jpg": "/df/static/media/puppy.0cebf73595cabfd96531.jpg",
     "static/media/dogs-arrows.jpg": "/df/static/media/dogs-arrows.706b52dd4ae49efca806.jpg",
@@ -16,11 +16,11 @@
     "static/media/corgi7.png": "/df/static/media/corgi7.d36574da6c7a7aa0dd9b.png",
     "static/media/corgi6.png": "/df/static/media/corgi6.17cb2db4d4cea7dbdd9f.png",
     "index.html": "/df/index.html",
-    "main.1a6738e6.css.map": "/df/static/css/main.1a6738e6.css.map",
-    "main.dd248ea1.js.map": "/df/static/js/main.dd248ea1.js.map"
+    "main.0af3e9eb.css.map": "/df/static/css/main.0af3e9eb.css.map",
+    "main.5003b3ae.js.map": "/df/static/js/main.5003b3ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a6738e6.css",
-    "static/js/main.dd248ea1.js"
+    "static/css/main.0af3e9eb.css",
+    "static/js/main.5003b3ae.js"
   ]
 }
