@@ -1,4 +1,98 @@
 .card {
-    min-height: 100px;
+    /*background-color: silver;*/
+    border: 1px solid silver;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.card__img {
+    margin-top: 2rem;
+    display: block;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+}
+.card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+.card__title {
+    height: calc(4rem * 1.2);
+    overflow: hidden;
+}
+.card__info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.8rem;
+}
+.card__rate {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+}
+.card__rate_empty {
+    color: silver;
+}
+.card__review {
+    color: silver;
+}
+.card__price {
+    font-weight: bold;
+    font-size: 3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+.card__price_discount {
+    font-weight: normal;
+    font-size: 2rem;
+    color: silver;
+}
+.card__btn {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    opacity: .8;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.card button:hover {
+    opacity: 1;
+}
+.card__buttons {
+    display: flex;
+    gap: 1rem;
+}
+.card__btn_basket {
+    border-radius: 1rem;
     background-color: silver;
+    flex: 1;
+}
+.card__tag {
+    color: white;
+    font-size: 2.2rem;
+    background-color: silver;
+    width: 100%;
+}
+.card__tag_toys {
+    background-color: olivedrab;
+}
+.card__tag_delicious {
+    background-color: crimson;
+}
+.card__tag_outerwear {
+    background-color: darkslateblue;
+}
+.card .lni {
+    font-size: 1.4em;
+}
+.card__info .lni {
+    font-size: 1em;
 }

@@ -5,6 +5,7 @@
   "homepage": "https://lekso4ka.github.io/df",
   "dependencies": {
     "gh-pages": "^5.0.0",
+    "lineicons": "^1.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.11.1",

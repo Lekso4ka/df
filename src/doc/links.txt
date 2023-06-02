@@ -23,3 +23,11 @@ https://newsapi.org/
         Life.ru
         Picabu
         Lenta.ru
+
+API
+https://api.react-learning.ru/api-docs/
+
+Векторные иконки
+https://www.npmjs.com/package/simple-line-icons
+https://www.npmjs.com/package/lineicons
+https://lineicons.com/icons/

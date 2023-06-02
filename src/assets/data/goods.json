@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Мини-палочки с кальцием Дентал",
+    "price": 129,
+    "discount": 10,
+    "pictures": "https://4lapy.ru/resize/480x480/upload/iblock/1dd/1dd9a08c29382b7f3281a9d91019dcd9.jpg",
+    "tags": ["delicious"],
+    "likes": ["1", "2", "3"],
+    "reviews": [
+      {"rating": 5},
+      {"rating": 5},
+      {"rating": 3},
+      {"rating": 5},
+      {"rating": 4}
+    ],
+    "_id": "1a",
+    "created_at": "2022-12-02"
+  },
+  {
+    "name": "Косточки с ягненком",
+    "price": 175,
+    "discount": 0,
+    "pictures": "https://4lapy.ru/resize/480x480/upload/iblock/0a1/0a1ebeb31d142da2e9b3f9766d4a01f4.jpg",
+    "tags": ["delicious"],
+    "likes": ["1","2","3","4","5","6","7","8","9"],
+    "reviews": [
+      {"rating": 5},
+      {"rating": 5},
+      {"rating": 4},
+      {"rating": 5},
+      {"rating": 5},
+      {"rating": 4},
+      {"rating": 5},
+      {"rating": 5}
+    ],
+    "_id": "2",
+    "created_at": "2023-01-25"
+  },
+  {
+    "name": "Мячик Ёжик",
+    "price": 169,
+    "discount": 5,
+    "pictures": "https://4lapy.ru/resize/480x480/upload/iblock/f9c/f9cba4ed3563a3d2701cb0f4223b8f18.jpg",
+    "tags": ["toys"],
+    "likes": ["1", "2"],
+    "reviews": [],
+    "_id": "3",
+    "created_at": "2023-01-10"
+  },
+  {
+    "name": "Комбинезон холодный камуфляж 3XL (мальчик)",
+    "price": 3515,
+    "discount": 15,
+    "pictures": "https://4lapy.ru/resize/480x480/upload/iblock/14b/14b5c688cbc38d976f5f4d15feef047e.jpg",
+    "tags": ["outerwear"],
+    "likes": [],
+    "reviews": [
+      {"rating": 5},
+      {"rating": 3},
+      {"rating": 4},
+      {"rating": 2}
+    ],
+    "_id": "4",
+    "created_at": "2023-05-28"
+  }
+]
