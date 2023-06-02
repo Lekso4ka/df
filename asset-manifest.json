@@ -1,10 +1,15 @@
 {
   "files": {
-    "main.css": "/df/static/css/main.0af3e9eb.css",
-    "main.js": "/df/static/js/main.803d7bb3.js",
+    "main.css": "/df/static/css/main.07144796.css",
+    "main.js": "/df/static/js/main.0945400e.js",
     "static/media/paws.jpg": "/df/static/media/paws.83e4309d232b63b20890.jpg",
     "static/media/puppy.jpg": "/df/static/media/puppy.0cebf73595cabfd96531.jpg",
     "static/media/dogs-arrows.jpg": "/df/static/media/dogs-arrows.706b52dd4ae49efca806.jpg",
+    "static/media/lineicons.svg": "/df/static/media/lineicons.f2f9b8a78db58f05b9ff.svg",
+    "static/media/lineicons.eot": "/df/static/media/lineicons.1bd27d861dcb216e6148.eot",
+    "static/media/lineicons.ttf": "/df/static/media/lineicons.76255d9384a33a768b98.ttf",
+    "static/media/lineicons.woff": "/df/static/media/lineicons.409f9fb975c5f7f1bc8b.woff",
+    "static/media/lineicons.woff2": "/df/static/media/lineicons.02810d8aed105f6dd345.woff2",
     "static/media/corgi2.png": "/df/static/media/corgi2.c56a37c68f2190c3f595.png",
     "static/media/corgi3.png": "/df/static/media/corgi3.ea8a277c85d06c13e090.png",
     "static/media/corgi10.png": "/df/static/media/corgi10.56b1314eb9ff1569c71e.png",
@@ -16,11 +21,11 @@
     "static/media/corgi7.png": "/df/static/media/corgi7.d36574da6c7a7aa0dd9b.png",
     "static/media/corgi6.png": "/df/static/media/corgi6.17cb2db4d4cea7dbdd9f.png",
     "index.html": "/df/index.html",
-    "main.0af3e9eb.css.map": "/df/static/css/main.0af3e9eb.css.map",
-    "main.803d7bb3.js.map": "/df/static/js/main.803d7bb3.js.map"
+    "main.07144796.css.map": "/df/static/css/main.07144796.css.map",
+    "main.0945400e.js.map": "/df/static/js/main.0945400e.js.map"
   },
   "entrypoints": [
-    "static/css/main.0af3e9eb.css",
-    "static/js/main.803d7bb3.js"
+    "static/css/main.07144796.css",
+    "static/js/main.0945400e.js"
   ]
 }
