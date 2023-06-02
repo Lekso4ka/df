@@ -13,24 +13,44 @@ import {
     SingleProduct
 } from "./pages"
 import Main from "./context/main";
+import staticNews from "./assets/data/news.json";
 
 import Layout from "./components/Layout";
 
 function App() {
-    const [news, setNews] = useState([]);
-    const [newsLenta, setNewsLenta] = useState([]);
+    let n1 = sessionStorage.getItem("dogs-news");
+    if (n1) {
+        n1 = JSON.parse(n1);
+    }
+    let n2 = sessionStorage.getItem("lenta-news");
+    if (n2) {
+        n2 = JSON.parse(n2);
+    }
+    const [news, setNews] = useState(n1 || []);
+    const [newsLenta, setNewsLenta] = useState(n2 || []);
 
     useEffect(() => {
-        fetch(`https://newsapi.org/v2/everything?q=собаки&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
-            .then(res => res.json())
-            .then(data => {
-                setNews(data.articles.filter(el => el.source.name === "Techinsider.ru"));
-            })
-        fetch(`https://newsapi.org/v2/everything?q=собаки&sources=lenta&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
-            .then(res => res.json())
-            .then(data => {
-                setNewsLenta(data.articles);
-            })
+        if (process.env.NODE_ENV === "development") {
+            if (!news.length) {
+                fetch(`https://newsapi.org/v2/everything?q=собаки&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const result = data.articles.filter(el => el.source.name === "Techinsider.ru")
+                        sessionStorage.setItem("dogs-news", JSON.stringify(result));
+                        setNews(result);
+                    })
+            }
+            if (!newsLenta.length) {
+                fetch(`https://newsapi.org/v2/everything?q=собаки&sources=lenta&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        sessionStorage.setItem("lenta-news", JSON.stringify(data.articles));
+                        setNewsLenta(data.articles);
+                    })
+            }
+        } else {
+            setNews(staticNews);
+        }
     }, []);
 
     const mainCtx = {

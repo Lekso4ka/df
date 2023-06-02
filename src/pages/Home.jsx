@@ -20,22 +20,22 @@ export function Home () {
         <Layout>
             <Adds {...addsData[0]}/>
         </Layout>
-        <Layout mb={2} dt={4} title="Новости о собачках">
-            {news.length > 0 && <Carousel
+        {news.length > 0 && <Layout mb={2} dt={4} title="Новости о собачках">
+             <Carousel
                 data={news.map((el, i) => <News key={`new-${i}`} data={el} isTitled={true} />)}
                 cnt={window.innerWidth < 1064 ? 2 : 4}
-            />}
-        </Layout>
+            />
+        </Layout>}
         <Layout dt={2}>
             <Adds {...addsData[1]}/>
             <Adds {...addsData[2]}/>
         </Layout>
-        <Layout mb={1} dt={2} title="Новости Lenta.ru">
-            {newsLenta.length > 0 && <Carousel
+        {newsLenta.length > 0 && <Layout mb={1} dt={2} title="Новости Lenta.ru">
+            <Carousel
                 data={newsLenta.map((el, i) => <News key={`new-${i}`} data={el}/>)}
                 cnt={window.innerWidth < 1064 ? 1 : 2}
-            />}
-        </Layout>
+            />
+        </Layout>}
         <Layout dt={2}>
             <Adds {...addsData[3]}/>
             <Adds {...addsData[4]}/>
