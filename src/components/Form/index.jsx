@@ -17,7 +17,6 @@ const Form = () => {
     const type = "product";
     const names = ["name", "price", "discount", "description"];
     const states = useFormState(type)();
-    console.log(states);
 
     const formHandler = (e) => {
         e.preventDefault();
