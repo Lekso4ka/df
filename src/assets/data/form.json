@@ -35,7 +35,7 @@
         "required": true
       }
     },
-    "password-accept": {
+    "passwordAccept": {
       "format": "input",
       "label": "Повторите пароль",
       "attr": {
