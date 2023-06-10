@@ -1,0 +1,166 @@
+{
+  "user": {
+    "name": {
+      "format": "input",
+      "label": "Ваше имя",
+      "attr": {
+        "type": "text",
+        "placeholder": "Лютиков Игорь"
+      }
+    },
+    "about": {
+      "format": "textarea",
+      "label": "Информация о себе"
+    },
+    "avatar": {
+      "format": "input",
+      "label": "Фото профиля",
+      "attr": {
+        "type": "link"
+      }
+    },
+    "email": {
+      "format": "input",
+      "label": "Ваша почта",
+      "attr": {
+        "type": "email",
+        "required": true
+      }
+    },
+    "password": {
+      "format": "input",
+      "label": "Ваш пароль",
+      "attr": {
+        "type": "password",
+        "required": true
+      }
+    },
+    "password-accept": {
+      "format": "input",
+      "label": "Повторите пароль",
+      "attr": {
+        "type": "password",
+        "required": true
+      }
+    },
+    "token": {
+      "format": "input",
+      "label": "Токен для восстановления пароля",
+      "attr": {
+        "type": "text",
+        "required": true
+      }
+    }
+  },
+  "product": {
+    "name": {
+      "format": "input",
+      "label": "Название товара",
+      "attr": {
+        "type": "text",
+        "required": true
+      }
+    },
+    "price": {
+      "format": "input",
+      "label": "Цена",
+      "attr": {
+        "type": "number",
+        "required": true,
+        "min": 1,
+        "max": 99999
+      }
+    },
+    "discount": {
+      "format": "select",
+      "label": "Скидка",
+      "options": [
+        {"val": 0, "text": "Без скидки"},
+        {"val": 5, "text": "5%"},
+        {"val": 10, "text": "10%"},
+        {"val": 15, "text": "15%"},
+        {"val": 20, "text": "20%"},
+        {"val": 25, "text": "25%"},
+        {"val": 30, "text": "30%"}
+      ]
+    },
+    "stock": {
+      "format": "input",
+      "label": "Количество",
+      "attr": {
+        "type": "number",
+        "min": 1,
+        "max": 1000
+      }
+    },
+    "isPublished": {
+      "format": "input",
+      "label": "Опубликовать",
+      "attr": {
+        "type": "checkbox"
+      }
+    },
+    "wight": {
+      "format": "input",
+      "label": "Вес",
+      "attr": {
+        "type": "text"
+      }
+    },
+    "description": {
+      "format": "textarea",
+      "label": "Описание",
+      "attr": {
+        "required": true
+      }
+    },
+    "pictures": {
+      "format": "input",
+      "label": "Изображение",
+      "attr": {
+        "type": "link",
+        "placeholder": "Ссылка на картинку"
+      }
+    },
+    "tag": {
+      "format": "input",
+      "label": "Теги",
+      "attr": {
+        "type": "text"
+      }
+    }
+  },
+  "review": {
+    "rating": {
+      "format": "input",
+      "label": "Оценка",
+      "attr": {
+        "type": "number",
+        "required": true,
+        "min": 0,
+        "max": 5
+      }
+    },
+    "text": {
+      "format": "textarea",
+      "label": "Ваш отзыв",
+      "attr": {
+        "required": true
+      }
+    },
+    "name": {
+      "format": "input",
+      "label": "Название отзыва",
+      "attr": {
+        "type": "text"
+      }
+    },
+    "city": {
+      "format": "input",
+      "label": "Город",
+      "attr": {
+        "type": "text"
+      }
+    }
+  }
+}
