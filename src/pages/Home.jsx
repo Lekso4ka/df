@@ -18,7 +18,6 @@ export function Home () {
     const favGoods = goodsData.filter(el => el.reviews.length !== 0).sort((a,b) => {
         const aSum = a.reviews.reduce((acc, el) => acc + el.rating, 0) / a.reviews.length;
         const bSum = b.reviews.reduce((acc, el) => acc + el.rating, 0) / b.reviews.length;
-        console.log(aSum, bSum);
         return bSum - aSum;
     });
     const newGoods = [...goodsData].sort((a,b) => {

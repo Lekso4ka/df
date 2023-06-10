@@ -53,12 +53,12 @@ const Card = ({
                     </span>
                 }
                 {/* TODO: предусмотреть склонение слова в зависимости от количества */}
-                <spam className="card__review">
+                <span className="card__review">
                     {reviews.length > 0
                         ? `${reviews.length} отзывов`
                         : "нет отзывов"
                     }
-                </spam>
+                </span>
             </span>
             {/* TODO: предусмотреть разделение цифр с пробелами */}
             <span className="card__price">
