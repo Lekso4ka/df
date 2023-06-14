@@ -9,6 +9,10 @@
     align-items: center;
     flex-direction: row;
 }
+.form__row_image {
+    display: grid;
+    grid-template-columns: auto 8rem;
+}
 .form__lbl {
     color: grey;
     cursor: pointer;
@@ -66,6 +70,19 @@
     color: silver;
 }
 
+.form__image {
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+    border: 1px solid silver;
+}
+.form__image_top {
+    height: 30rem
+}
+.form__image_right {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
 
 
 

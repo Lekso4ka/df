@@ -13,7 +13,8 @@
       "label": "Информация о себе"
     },
     "avatar": {
-      "format": "input",
+      "format": "image",
+      "position": "right",
       "label": "Фото профиля",
       "attr": {
         "type": "link"
@@ -28,16 +29,8 @@
       }
     },
     "password": {
-      "format": "input",
+      "format": "password",
       "label": "Ваш пароль",
-      "attr": {
-        "type": "password",
-        "required": true
-      }
-    },
-    "passwordAccept": {
-      "format": "input",
-      "label": "Повторите пароль",
       "attr": {
         "type": "password",
         "required": true
@@ -115,7 +108,8 @@
       }
     },
     "pictures": {
-      "format": "input",
+      "format": "image",
+      "position": "top",
       "label": "Изображение",
       "attr": {
         "type": "link",

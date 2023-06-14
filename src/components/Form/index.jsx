@@ -1,7 +1,11 @@
-import Input from "./Input";
-import Select from "./Select";
+import {useState} from "react";
+
+import Input from "./fields/Input";
+import Select from "./fields/Select";
+import Textarea from "./fields/Textarea";
+import Image from "./fields/Image";
+import Password from "./fields/Password";
 import Search from "./Search";
-import Textarea from "./Textarea";
 
 import formData from "../../assets/data/form.json";
 import useFormState from "../../hooks/useFormState";
@@ -9,13 +13,15 @@ import "./index.css";
 
 // TODO: Добавить компонент с checkbox
 // TODO: Добавить компонент с тегами
-// TODO: Добавить компонент с изображением
-// TODO: Компонент для проверки пароля
-const Form = () => {
-    // const type = "user"
-    // const names = ["email", "name", "about", "password", "passwordAccept"];
-    const type = "product";
-    const names = ["name", "price", "discount", "description"];
+
+const Form = ({
+    comparePwd = false
+}) => {
+    const type = "user"
+    const names = ["email", "name", "avatar", "password"];
+    const [similarPwd, setSimilarPwd] = useState(false);
+    // const type = "product";
+    // const names = ["name", "price", "discount", "pictures", "description"];
     const states = useFormState(type)();
 
     const formHandler = (e) => {
@@ -34,14 +40,18 @@ const Form = () => {
                     return <Textarea key={el} name={el} {...elData} state={states[el]}/>
                 case "select":
                     return <Select key={el} name={el} {...elData} state={states[el]}/>
+                case "image":
+                    return <Image key={el} name={el} {...elData} state={states[el]} />
+                case "password":
+                    return <Password key={el} name={el} {...elData} state={states[el]} compare={comparePwd} setSimilar={setSimilarPwd}/>
                 default:
                     return <Input key={el} name={el} {...elData} state={states[el]} />
             }
         })}
-        <button type="submit">Отправить</button>
+        <button type="submit" >Отправить</button>
     </form>
 }
 
-export {Input, Search, Textarea, Select};
+export {Input, Search, Textarea, Select, Password, Image};
 
 export default Form;
