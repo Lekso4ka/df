@@ -1,19 +1,61 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
+import {useNavigate} from "react-router-dom";
 
 import Form from "../components/Form";
 import Layout from "../components/Layout";
 
+import MainCtx from "../context/main";
+
 export function Auth () {
-    const [index, setIndex] = useState(1);
+    const [index, setIndex] = useState(0);
     const types = ["login", "signup", "getToken", "updPwd"];
     const names = ["Войти", "Зарегистрироваться", "Восстановить пароль", "Восстановить пароль"];
 
-    const authHandler = () => {};
-    const regHandler = () => {};
-    const tokenHandler = () => {
-        setIndex(3)
+    const {api, setUserId} = useContext(MainCtx);
+    const navigate = useNavigate();
+
+    const authHandler = (body) => {
+        api.login(body)
+            .then(data => {
+                if (data) {
+                    localStorage.setItem("user-token", data.token);
+                    localStorage.setItem("user-id", data.data._id);
+                    setUserId(data.data._id);
+                    navigate("/profile");
+                }
+            })
     };
-    const pwdHandler = () => {};
+    const regHandler = (body) => {
+        body.group = process.env.REACT_APP_GROUP;
+        api.signup(body)
+            .then(data => {
+                if (data) {
+                    authHandler({
+                        "email": body.email,
+                        "password": body.password
+                    });
+                }
+            })
+    };
+    const tokenHandler = (body) => {
+        api.forgotPwd(body)
+            .then(data => {
+                if (data) {
+                    setIndex(3)
+                }
+            });
+    };
+    const pwdHandler = (body) => {
+        api.resetPwd(body)
+            .then(data => {
+                if (data) {
+                    localStorage.setItem("user-token", data.token);
+                    localStorage.setItem("user-id", data.data._id);
+                    setUserId(data.data._id);
+                    navigate("/profile");
+                }
+            })
+    };
 
     const handlers = [authHandler, regHandler, tokenHandler, pwdHandler];
 

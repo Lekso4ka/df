@@ -5,19 +5,24 @@
       "label": "Ваше имя",
       "attr": {
         "type": "text",
-        "placeholder": "Лютиков Игорь"
+        "placeholder": "Лютиков Игорь",
+        "required": true
       }
     },
     "about": {
       "format": "textarea",
-      "label": "Информация о себе"
+      "label": "Информация о себе",
+      "attr": {
+        "required": true
+      }
     },
     "avatar": {
       "format": "image",
       "position": "right",
       "label": "Фото профиля",
       "attr": {
-        "type": "link"
+        "type": "link",
+        "required": true
       }
     },
     "email": {

@@ -13,6 +13,7 @@ import {
     SingleProduct
 } from "./pages"
 import Main from "./context/main";
+import Api from "./Api";
 import staticNews from "./assets/data/news.json";
 
 import Layout from "./components/Layout";
@@ -28,6 +29,9 @@ function App() {
     }
     const [news, setNews] = useState(n1 || []);
     const [newsLenta, setNewsLenta] = useState(n2 || []);
+    const [token, setToken] = useState(localStorage.getItem("user-token"));
+    const [userId, setUserId] = useState(localStorage.getItem("user-id"));
+    const [api, setApi] = useState(new Api(token));
 
     useEffect(() => {
         if (process.env.NODE_ENV === "development") {
@@ -53,9 +57,20 @@ function App() {
         }
     }, []);
 
+    useEffect(() => {
+        setApi(new Api(token))
+    }, [token])
+
+    useEffect(() => {
+        setToken(localStorage.getItem("user-token"))
+    }, [userId])
+
     const mainCtx = {
         news,
-        newsLenta
+        newsLenta,
+        api,
+        userId,
+        setUserId
     }
 
     return <Main.Provider value={mainCtx}>
