@@ -1,5 +1,7 @@
+import Layout from "../components/Layout";
+
 export function Basket () {
-    return <>
+    return <Layout>
         <h1>Корзина</h1>
-    </>
+    </Layout>
 }

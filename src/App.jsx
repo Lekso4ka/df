@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import {
     About,
@@ -14,11 +14,10 @@ import {
 } from "./pages"
 import Main from "./context/main";
 import Api from "./Api";
-import staticNews from "./assets/data/news.json";
-import menu from "./assets/data/menu.json";
 
-import Layout from "./components/Layout";
-import Nav from "./components/Nav";
+import Header from "./components/Header";
+
+import staticNews from "./assets/data/news.json";
 
 function App() {
     let n1 = sessionStorage.getItem("dogs-news");
@@ -34,6 +33,7 @@ function App() {
     const [token, setToken] = useState(localStorage.getItem("user-token"));
     const [userId, setUserId] = useState(localStorage.getItem("user-id"));
     const [api, setApi] = useState(new Api(token));
+    const [screen, setScreen] = useState(window.innerWidth)
 
     useEffect(() => {
         if (process.env.NODE_ENV === "development") {
@@ -57,6 +57,9 @@ function App() {
         } else {
             setNews(staticNews);
         }
+        window.addEventListener("resize", () => {
+            setScreen(window.innerWidth);
+        })
     }, []);
 
     useEffect(() => {
@@ -72,13 +75,12 @@ function App() {
         newsLenta,
         api,
         userId,
-        setUserId
+        setUserId,
+        screen
     }
 
     return <Main.Provider value={mainCtx}>
-        <Layout>
-            <Nav menu={menu.header}/>
-        </Layout>
+        <Header/>
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/products" element={<Products/>}/>

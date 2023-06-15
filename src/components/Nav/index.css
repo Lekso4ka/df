@@ -28,18 +28,18 @@
 }
 .nav__item {
     position: relative;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
 }
 .nav__link {
     height: 100%;
     display: flex;
     align-items: center;
     gap: 1rem;
-    justify-content: flex-end;
-    color: gray;
+    justify-content: center;
+    opacity: .8;
 }
 .nav__link:hover {
-    color: black;
+    opacity: 1;
 }
 .nav__item:hover>.nav_submenu {
     display: flex;
@@ -51,7 +51,7 @@
     flex-direction: column;
 }
 .nav__image {
-
+    height: 3rem;
 }
 .nav__icon {
     font-size: 3rem;

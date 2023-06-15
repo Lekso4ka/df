@@ -1,0 +1,9 @@
+.logo {
+    font-size: 3rem;
+}
+.logo .nav__image {
+    height: 6rem;
+}
+.logo .nav__item {
+    padding: 0;
+}
