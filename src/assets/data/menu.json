@@ -1,0 +1,70 @@
+{
+  "header": [
+    {
+      "title": "О нас",
+      "path": "/about"
+    },
+    {
+      "title": "Доставка",
+      "path": "/delivery"
+    },
+    {
+      "title": "Каталог",
+      "path": "/products",
+      "imgType": "icon",
+      "imgPath": "lni lni-layers",
+      "visibility": "user",
+      "subLinks": [
+        {
+          "title": "Лакомства",
+          "path": "/products/category/delicious",
+          "imgType": "icon",
+          "imgPath": "lni lni-pizza",
+          "position": "horizontal"
+        },
+        {
+          "title": "Игрушки",
+          "path": "/products/category/toys",
+          "imgType": "icon",
+          "imgPath": "lni lni-game",
+          "position": "horizontal"
+        },
+        {
+          "title": "Одежда",
+          "path": "/products/category/outwear",
+          "imgType": "icon",
+          "imgPath": "lni lni-t-shirt",
+          "position": "horizontal"
+        },
+        {
+          "title": "Другое",
+          "path": "/products/category/other",
+          "imgType": "icon",
+          "imgPath": "lni lni-cool",
+          "position": "horizontal"
+        }
+      ]
+    },
+    {
+      "title": "Корзина",
+      "path": "/basket",
+      "imgType": "icon",
+      "imgPath": "lni lni-cart",
+      "visibility": "user"
+    },
+    {
+      "path": "/profile",
+      "imgType": "icon",
+      "imgPath": "lni lni-user",
+      "visibility": "user"
+    },
+    {
+      "title": "Войти",
+      "path": "/auth",
+      "imgType": "icon",
+      "imgPath": "lni lni-enter",
+      "visibility": "no-user"
+    }
+  ],
+  "footer": []
+}
