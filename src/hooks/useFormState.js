@@ -6,7 +6,6 @@ const useUserState = () => {
     const avatar = useState("");
     const email = useState("");
     const password = useState("");
-    const passwordAccept = useState("");
     const token = useState("");
     return {
         name,
@@ -14,7 +13,6 @@ const useUserState = () => {
         avatar,
         email,
         password,
-        passwordAccept,
         token
     }
 }

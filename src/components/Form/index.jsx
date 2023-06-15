@@ -7,51 +7,68 @@ import Image from "./fields/Image";
 import Password from "./fields/Password";
 import Search from "./Search";
 
-import formData from "../../assets/data/form.json";
-import useFormState from "../../hooks/useFormState";
+import AuthForm from "./forms/AuthForm";
+import ProductForm from "./forms/ProductForm";
+import ReviewForm from "./forms/ReviewForm";
+
 import "./index.css";
 
 // TODO: Добавить компонент с checkbox
 // TODO: Добавить компонент с тегами
 
 const Form = ({
-    comparePwd = false
+    type,
+    fieldsType,
+    cb = () => {}
 }) => {
-    const type = "user"
-    const names = ["email", "name", "avatar", "password"];
-    const [similarPwd, setSimilarPwd] = useState(false);
-    // const type = "product";
-    // const names = ["name", "price", "discount", "pictures", "description"];
-    const states = useFormState(type)();
+    const authFields = ["email", "password"];
+    const regFields = ["email", "name", "avatar", "about", "password"];
+    const pwdFields = ["email", "token", "password"];
 
-    const formHandler = (e) => {
-        e.preventDefault();
-        const body = {};
-        names.forEach(el => {
-            body[el] = states[el][0];
-        })
-        console.log(body);
-    }
-    return <form onSubmit={formHandler}>
-        {names.map(el => {
-            const elData = formData[type][el];
-            switch (elData.format) {
-                case "textarea":
-                    return <Textarea key={el} name={el} {...elData} state={states[el]}/>
-                case "select":
-                    return <Select key={el} name={el} {...elData} state={states[el]}/>
-                case "image":
-                    return <Image key={el} name={el} {...elData} state={states[el]} />
-                case "password":
-                    return <Password key={el} name={el} {...elData} state={states[el]} compare={comparePwd} setSimilar={setSimilarPwd}/>
-                default:
-                    return <Input key={el} name={el} {...elData} state={states[el]} />
-            }
-        })}
-        <button type="submit" >Отправить</button>
-    </form>
+    return <>
+        {type === "auth" && <>
+            {fieldsType === "login" && <AuthForm
+                fields={authFields}
+                btnText="Войти"
+                cb={cb}
+            />}
+            {fieldsType === "signup" && <AuthForm
+                fields={regFields}
+                comparePwd={true}
+                btnText="Зарегистрироваться"
+                cb={cb}
+            />}
+            {fieldsType === "getToken" && <AuthForm
+                fields={pwdFields.slice(0,1)}
+                btnText="Получить токен"
+                cb={cb}
+            />}
+            {fieldsType === "updPwd" && <AuthForm
+                fields={pwdFields.slice(1)}
+                comparePwd={true}
+                btnText="Обновить пароль"
+                cb={cb}
+            />}
+        </>}
+        {type === "product" && <>
+            <ProductForm/>
+        </>}
+        {type === "review" && <>
+            <ReviewForm/>
+        </>}
+    </>
 }
 
-export {Input, Search, Textarea, Select, Password, Image};
+export {
+    Input,
+    Search,
+    Textarea,
+    Select,
+    Password,
+    Image,
+    AuthForm,
+    ProductForm,
+    ReviewForm
+};
 
 export default Form;
