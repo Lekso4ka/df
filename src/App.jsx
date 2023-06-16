@@ -13,6 +13,7 @@ import {
     SingleProduct
 } from "./pages"
 import Main from "./context/main";
+import Utils, {initialValue as utilsVal} from "./context/utils";
 import Api from "./Api";
 
 import Header from "./components/Header";
@@ -101,23 +102,25 @@ function App() {
     }
 
     return <Main.Provider value={mainCtx}>
-        <Header/>
-        <main>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/products" element={<Products/>}/>
-                <Route path="/products/category/:name" element={<Products isCat={true}/>}/>
-                <Route path="/products/favorites" element={<Products isFav={true}/>}/>
-                <Route path="/product/:id" element={<SingleProduct/>}/>
-                <Route path="/product/add" element={<AddProduct/>}/>
-                <Route path="/basket" element={<Basket/>}/>
-                <Route path="/profile" element={<Profile/>}/>
-                <Route path="/auth" element={<Auth/>}/>
-                <Route path="/delivery" element={<Delivery/>}/>
-                <Route path="/about" element={<About/>}/>
-            </Routes>
-        </main>
-        <Footer/>
+        <Utils.Provider value={utilsVal}>
+            <Header/>
+            <main>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/products" element={<Products/>}/>
+                    <Route path="/products/category/:name" element={<Products isCat={true}/>}/>
+                    <Route path="/products/favorites" element={<Products isFav={true}/>}/>
+                    <Route path="/product/:id" element={<SingleProduct/>}/>
+                    <Route path="/product/add" element={<AddProduct/>}/>
+                    <Route path="/basket" element={<Basket/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/auth" element={<Auth/>}/>
+                    <Route path="/delivery" element={<Delivery/>}/>
+                    <Route path="/about" element={<About/>}/>
+                </Routes>
+            </main>
+            <Footer/>
+        </Utils.Provider>
     </Main.Provider>
 }
 

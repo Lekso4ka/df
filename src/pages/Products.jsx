@@ -1,11 +1,11 @@
-import {useContext} from "react";
+import {useContext, useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 
 import MainCtx from "../context/main"
-import {Banners} from "../assets/images"
+import UtilsCtx from "../context/utils"
 
 export function Products ({
     isFav = false,
@@ -13,23 +13,38 @@ export function Products ({
 }) {
     const { name } = useParams()
     const {products} = useContext(MainCtx);
+    const {filterPro} = useContext(UtilsCtx);
+    const [goods, setGoods] = useState([]);
     const names = {
         "outerwear": "Одежда",
         "toys": "Игрушки",
         "delicious": "Лакомства",
         "other": "Прочие товары",
     }
-    const goods = products.filter(el => {
+    useEffect(() => {
         if (name === "other") {
-            return !el.tags.includes(cat => cat === "toys" && cat === "delicious" && cat !== "outerwear")
+            setGoods(filterPro(products)
+                .byTag("df")
+                .byTag("delicious", false)
+                .byTag("toys", false)
+                .byTag("outerwear", false)
+                .data
+            )
         } else if (name) {
-            return el.tags.includes(name);
+            setGoods(filterPro(products)
+                .byTag("df")
+                .byTag(name)
+                .data
+            )
         } else {
-            return el;
+            setGoods(filterPro(products)
+                .byTag("df")
+                .data
+            )
         }
-    })
+    }, [name])
     return <>
-        {isCat && <Banner title={names[name]} main={false} bg="paws" pattern={true}/>}
+        {isCat && <Banner title={names[name] || name} main={false} bg="paws" pattern={true}/>}
         <Layout>
             {isFav && <h1>Любимые товары</h1>}
             {!isFav && !isCat && <h1>Страница товаров</h1>}

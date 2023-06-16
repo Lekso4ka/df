@@ -8,14 +8,16 @@ import Carousel from "../components/Carousel";
 import Card from "../components/Card";
 
 import MainCtx from "../context/main";
+import UtilsCtx from "../context/utils";
 
 import bannersData from "../assets/data/banners.json";
 import addsData from "../assets/data/adds.json";
-// import goodsData from "../assets/data/goods.json";
+// TODO: Добавить новости в футер
 
 export function Home () {
     const { news, newsLenta, products, screen } = useContext(MainCtx);
-    const favGoods = products.filter(el => el.reviews.length !== 0).sort((a,b) => {
+    const { getNumber, filterPro } = useContext(UtilsCtx);
+    const favGoods = filterPro(products).byReviews().data.sort((a,b) => {
         const aSum = a.reviews.reduce((acc, el) => acc + el.rating, 0) / a.reviews.length;
         const bSum = b.reviews.reduce((acc, el) => acc + el.rating, 0) / b.reviews.length;
         return bSum - aSum;
@@ -44,12 +46,6 @@ export function Home () {
         {favGoods.length > 0 && <Layout mb={2} dt={4} title="Популярные товары">
             {favGoods.map(el => <Card key={el._id} {...el}/>)}
         </Layout>}
-        {newsLenta.length > 0 && <Layout mb={1} dt={2} title="Новости Lenta.ru">
-            <Carousel
-                data={newsLenta.map((el, i) => <News key={`new-${i}`} data={el}/>)}
-                cnt={window.innerWidth < 1064 ? 1 : 2}
-            />
-        </Layout>}
         <Layout dt={2}>
             <Adds {...addsData[3]}/>
             <Adds {...addsData[4]}/>
@@ -57,6 +53,12 @@ export function Home () {
         {/* TODO: не забыть фильтровать недавно просмотренные товары */}
         {products.length > 0 && <Layout mb={2} dt={4} title="Недавно просмотренные">
             {products.map(el => <Card key={el._id} {...el}/>).slice(0, screen < 1064 ? 2 : 4)}
+        </Layout>}
+        {newsLenta.length > 0 && <Layout mb={1} dt={2} title="Новости Lenta.ru">
+            <Carousel
+                data={newsLenta.map((el, i) => <News key={`new-${i}`} data={el}/>)}
+                cnt={window.innerWidth < 1064 ? 1 : 2}
+            />
         </Layout>}
         <Layout>
             <Adds {...addsData[5]}/>
