@@ -37,6 +37,7 @@
     .footer__sign {
         flex-direction: column;
         align-items: flex-start;
+        grid-row-start: 1;
     }
     .footer__text {
         font-size: 2rem;
