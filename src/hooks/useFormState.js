@@ -23,10 +23,11 @@ const useProductState = () => {
     const discount = useState(0);
     const stock = useState(1);
     const isPublished = useState(false);
+    const available = useState(false)
     const wight = useState("");
     const description = useState("Тут скоро появится описание");
     const pictures = useState("");
-    const tag = useState("");
+    const tags = useState(["df"]);
     return {
         name,
         price,
@@ -36,7 +37,8 @@ const useProductState = () => {
         wight,
         description,
         pictures,
-        tag
+        tags,
+        available
     }
 }
 

@@ -1,10 +1,10 @@
-import {useState} from "react";
-
 import Input from "./fields/Input";
 import Select from "./fields/Select";
 import Textarea from "./fields/Textarea";
 import Image from "./fields/Image";
 import Password from "./fields/Password";
+import Switch from "./fields/Switch";
+import Tag from "./fields/Tag";
 import Search from "./Search";
 
 import AuthForm from "./forms/AuthForm";
@@ -12,9 +12,6 @@ import ProductForm from "./forms/ProductForm";
 import ReviewForm from "./forms/ReviewForm";
 
 import "./index.css";
-
-// TODO: Добавить компонент с checkbox
-// TODO: Добавить компонент с тегами
 
 const Form = ({
     type,
@@ -24,7 +21,7 @@ const Form = ({
     const authFields = ["email", "password"];
     const regFields = ["email", "name", "avatar", "about", "password"];
     const pwdFields = ["email", "token", "password"];
-
+    const productFields = ["name", "pictures", "price", "discount", "stock", "wight", "description", "tags", "available", "isPublished"];
     return <>
         {type === "auth" && <>
             {fieldsType === "login" && <AuthForm
@@ -51,7 +48,11 @@ const Form = ({
             />}
         </>}
         {type === "product" && <>
-            <ProductForm/>
+            <ProductForm
+                fields={productFields}
+                btnText="Добавить товар"
+                cb={cb}
+            />
         </>}
         {type === "review" && <>
             <ReviewForm/>
@@ -68,7 +69,9 @@ export {
     Image,
     AuthForm,
     ProductForm,
-    ReviewForm
+    ReviewForm,
+    Tag,
+    Switch
 };
 
 export default Form;

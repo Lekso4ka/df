@@ -92,8 +92,15 @@
       }
     },
     "isPublished": {
-      "format": "input",
+      "format": "switch",
       "label": "Опубликовать",
+      "attr": {
+        "type": "checkbox"
+      }
+    },
+    "available": {
+      "format": "switch",
+      "label": "Доступно для заказа",
       "attr": {
         "type": "checkbox"
       }
@@ -121,8 +128,8 @@
         "placeholder": "Ссылка на картинку"
       }
     },
-    "tag": {
-      "format": "input",
+    "tags": {
+      "format": "tag",
       "label": "Теги",
       "attr": {
         "type": "text"

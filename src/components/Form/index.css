@@ -18,6 +18,7 @@
 .form__lbl {
     color: grey;
     cursor: pointer;
+    user-select: none;
 }
 .form__lbl_req {
     color: crimson;
@@ -79,7 +80,7 @@
     border: 1px solid silver;
 }
 .form__image_top {
-    height: 30rem
+    height: 30rem;
 }
 .form__image_right {
     grid-column: 2 / 3;
@@ -131,6 +132,79 @@
 }
 .form__link:hover {
     color: black;
+}
+.form__tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.form__tag {
+    flex: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.form__switch {
+    display: none;
+}
+.form__switch:checked+.form__lbl_switch::before {
+    background-color: silver;
+}
+.form__switch:checked+.form__lbl_switch::after {
+    transform: translate(2rem, 0);
+}
+.form__lbl_switch {
+    align-self: flex-start;
+    padding-right: 2rem;
+}
+.form__lbl_switch::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 2rem;
+    width: 4rem;
+    border: 1px solid silver;
+    border-radius: 1rem;
+    left: 100%;
+    top: 0;
+    transition: background-color 200ms;
+}
+.form__lbl_switch::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid silver;
+    border-radius: 50%;
+    background-color: white;
+    left: 100%;
+    top: 0;
+    transition: transform 200ms;
+}
+
+.form_product .layout {
+    gap: 3rem;
+}
+.form_product .form__row:nth-child(2) .form__lbl {
+    order: -1;
+}
+@media  screen and (min-width: 1064px) {
+    .form_product .form__row:nth-child(2) {
+        grid-row-end: span 4;
+    }
+    .form_product .form__row:nth-child(2) .form__image {
+        flex: 1;
+    }
+    .form_product .form__row:nth-child(7) {
+        grid-row-end: span 2;
+    }
+    .form_product .form__row:nth-child(7) .form__text {
+        flex: 1;
+    }
+    .form_product .form__btn {
+        grid-row: 7 / 9;
+        grid-column-start: 2;
+    }
 }
 
 

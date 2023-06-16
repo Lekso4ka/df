@@ -154,6 +154,12 @@
       "title": "Image placeholder icons created by Design Circle",
       "path": "https://www.flaticon.com/free-icons/image-placeholder",
       "as": "a"
+    },
+    {
+      "title": "Данные о товарах взяты из магазина 4lapy",
+      "path": "https://4lapy.ru/",
+      "caption": true,
+      "as": "a"
     }
   ]
 }
