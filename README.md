@@ -23,3 +23,4 @@
 + [Урок 18. Каталог товаров. Отображение товаров из Базы Данных](https://youtu.be/_PnTglo4dR0)
 + [Урок 19. Добавление товара на сайт](https://youtu.be/RtgeqwRmerA)
 + [Урок 20. Добавление контекста с функциями](https://youtu.be/hwfJwFEZtjQ)
++ [Урок 21. Работа с пагинацией](https://youtu.be/nIAfu55exRA)

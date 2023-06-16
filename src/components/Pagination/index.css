@@ -1,0 +1,28 @@
+.pagination {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    color: silver;
+}
+.pagination__btn {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem 1rem;
+    color: silver;
+}
+.pagination__btn:hover {
+    color: grey;
+}
+.pagination__btn:disabled {
+    opacity: .5;
+    cursor: auto;
+    color: silver;
+}
+.pagination__btn_active {
+    background: silver;
+    color: white;
+}

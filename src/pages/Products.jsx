@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
+import Pagination from "../components/Pagination";
 
 import MainCtx from "../context/main"
 import UtilsCtx from "../context/utils"
+
+import usePaginate from "../hooks/usePaginate";
 
 export function Products ({
     isFav = false,
@@ -21,6 +24,7 @@ export function Products ({
         "delicious": "Лакомства",
         "other": "Прочие товары",
     }
+    const paginate = usePaginate(goods, 12);
     useEffect(() => {
         if (name === "other") {
             setGoods(filterPro(products)
@@ -42,15 +46,16 @@ export function Products ({
                 .data
             )
         }
-    }, [name])
+    }, [name, products])
     return <>
         {isCat && <Banner title={names[name] || name} main={false} bg="paws" pattern={true}/>}
         <Layout>
             {isFav && <h1>Любимые товары</h1>}
             {!isFav && !isCat && <h1>Страница товаров</h1>}
             <Layout mb={2} dt={4}>
-                {goods.map(el => <Card key={el._id} {...el}/>)}
+                {paginate.getPage().map(el => <Card key={el._id} {...el}/>)}
             </Layout>
+            <Pagination hook={paginate}/>
         </Layout>
 </>
 }
