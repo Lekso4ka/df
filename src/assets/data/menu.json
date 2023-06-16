@@ -66,5 +66,95 @@
       "visibility": "no-user"
     }
   ],
-  "footer": []
+  "footer": [
+    {
+      "title": "Войти",
+      "path": "/auth",
+      "visibility": "no-user"
+    },
+    {
+      "title": "Личный кабинет",
+      "path": "/profile",
+      "visibility": "user"
+    },
+    {
+      "title": "Каталог",
+      "path": "/products",
+      "visibility": "user"
+    },
+    {
+      "title": "Корзина",
+      "path": "/basket",
+      "visibility": "user"
+    },
+    {
+      "title": "О магазине",
+      "path": "/about"
+    },
+    {
+      "title": "Доставка и оплата",
+      "path": "/delivery"
+    }
+  ],
+  "links_1": [
+    {
+      "title": "Freepik images",
+      "path": "https://www.freepik.com",
+      "caption": true,
+      "as": "a"
+    },
+    {
+      "title": "Image by pikisuperstar",
+      "path": "https://www.freepik.com/free-vector/colorful-doodle_4135825.htm#query=pattern%20dog&position=14&from_view=search&track=ais",
+      "as": "a"
+    },
+    {
+      "title": "Image by lesyaskripak",
+      "path": "https://www.freepik.com/free-vector/seamless-boho-pattern-with-dogs-arrows_22991865.htm#query=pattern%20dog&position=15&from_view=search&track=ais",
+      "as": "a"
+    },
+    {
+      "title": "Image by rawpixel.com",
+      "path": "https://www.freepik.com/free-vector/seamless-animal-pattern-background-cute-paw-print-vector-illustration_20266394.htm#query=pattern%20dog&position=7&from_view=search&track=ais",
+      "as": "a"
+    }
+  ],
+  "links_2": [
+    {
+      "title": "Unsplash images",
+      "path": "https://unsplash.com/images/animals/puppies?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "caption": true,
+      "as": "a"
+    },
+    {
+      "title": "Photo by hannah grace",
+      "path": "https://unsplash.com/@oddityandgrace?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "as": "a"
+    },
+    {
+      "title": "Lineicons",
+      "path": "https://github.com/LineiconsHQ/Lineicons",
+      "caption": true,
+      "as": "a"
+    }
+  ],
+  "links_3": [
+    {
+      "title": "Flaticon images",
+      "path": "https://www.flaticon.com",
+      "caption": true,
+      "as": "a"
+    },
+    {
+      "title": "Corgi stickers created by Surfsup.Vector",
+      "path": "https://www.flaticon.com/free-stickers/corgi",
+      "as": "a"
+    },
+    {
+      "title": "Image placeholder icons created by Design Circle",
+      "path": "https://www.flaticon.com/free-icons/image-placeholder",
+      "as": "a"
+    }
+  ]
 }
+

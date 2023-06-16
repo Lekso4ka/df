@@ -24,22 +24,8 @@ ul {
     padding: 0;
     list-style-type: none;
 }
-.menu {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-.menu>li {
-    position: relative;
-}
-.menu>li:hover>ul {
-    visibility: visible;
-}
-.menu ul {
-    position: absolute;
-    z-index: 1;
-    background-color: white;
-    padding: 10px;
-    box-shadow: 0 1px 5px 0 #0004;
-    visibility: hidden;
+#root {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }

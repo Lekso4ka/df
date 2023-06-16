@@ -30,6 +30,13 @@
     position: relative;
     padding: 1rem 0;
 }
+.nav .nav__item.nav__item_caption {
+    font-weight: bold;
+    padding-bottom: .5rem;
+}
+.nav .nav__item.nav__item_caption:not(:first-child) {
+    padding-top: 2rem;
+}
 .nav__link {
     height: 100%;
     display: flex;
