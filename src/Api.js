@@ -59,7 +59,7 @@ class Api {
             .then(res => this.checkRes(res))
     }
     getProducts() {
-        return fetch(`${this.path}/products`, {
+        return fetch(`${this.path}/products?page=1&limit=1000`, {
             headers: this.setHeaders()
         })
             .then(res => this.checkRes(res))

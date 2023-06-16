@@ -31,7 +31,7 @@
         },
         {
           "title": "Одежда",
-          "path": "/products/category/outwear",
+          "path": "/products/category/outerwear",
           "imgType": "icon",
           "imgPath": "lni lni-t-shirt",
           "position": "horizontal"

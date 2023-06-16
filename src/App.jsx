@@ -34,7 +34,8 @@ function App() {
     const [token, setToken] = useState(localStorage.getItem("user-token"));
     const [userId, setUserId] = useState(localStorage.getItem("user-id"));
     const [api, setApi] = useState(new Api(token));
-    const [screen, setScreen] = useState(window.innerWidth)
+    const [screen, setScreen] = useState(window.innerWidth);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         if (process.env.NODE_ENV === "development") {
@@ -61,7 +62,24 @@ function App() {
         window.addEventListener("resize", () => {
             setScreen(window.innerWidth);
         })
+        if (token) {
+            api.getProducts()
+                .then(data => {
+                    setProducts(data.products);
+                })
+        }
     }, []);
+
+    useEffect(() => {
+        if (token) {
+            api.getProducts()
+                .then(data => {
+                    setProducts(data.products);
+                })
+        } else {
+            setProducts([]);
+        }
+    }, [api])
 
     useEffect(() => {
         setApi(new Api(token))
@@ -77,7 +95,9 @@ function App() {
         api,
         userId,
         setUserId,
-        screen
+        screen,
+        products,
+        setProducts
     }
 
     return <Main.Provider value={mainCtx}>

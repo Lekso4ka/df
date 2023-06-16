@@ -11,18 +11,18 @@ import MainCtx from "../context/main";
 
 import bannersData from "../assets/data/banners.json";
 import addsData from "../assets/data/adds.json";
-import goodsData from "../assets/data/goods.json";
+// import goodsData from "../assets/data/goods.json";
 
 export function Home () {
-    const { news, newsLenta } = useContext(MainCtx);
-    const favGoods = goodsData.filter(el => el.reviews.length !== 0).sort((a,b) => {
+    const { news, newsLenta, products, screen } = useContext(MainCtx);
+    const favGoods = products.filter(el => el.reviews.length !== 0).sort((a,b) => {
         const aSum = a.reviews.reduce((acc, el) => acc + el.rating, 0) / a.reviews.length;
         const bSum = b.reviews.reduce((acc, el) => acc + el.rating, 0) / b.reviews.length;
         return bSum - aSum;
-    });
-    const newGoods = [...goodsData].sort((a,b) => {
+    }).slice(0, screen < 1064 ? 2 : 4);
+    const newGoods = [...products].sort((a,b) => {
         return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    });
+    }).slice(0, screen < 1064 ? 2 : 4);
     return <>
         <Banner {...bannersData[2]} pattern={false} bgPos="50% 38%"/>
         <Layout>
@@ -55,8 +55,8 @@ export function Home () {
             <Adds {...addsData[4]}/>
         </Layout>
         {/* TODO: не забыть фильтровать недавно просмотренные товары */}
-        {goodsData.length > 0 && <Layout mb={2} dt={4} title="Недавно просмотренные">
-            {goodsData.map(el => <Card key={el._id} {...el}/>)}
+        {products.length > 0 && <Layout mb={2} dt={4} title="Недавно просмотренные">
+            {products.map(el => <Card key={el._id} {...el}/>).slice(0, screen < 1064 ? 2 : 4)}
         </Layout>}
         <Layout>
             <Adds {...addsData[5]}/>

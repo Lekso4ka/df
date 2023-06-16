@@ -1,5 +1,7 @@
 .card {
-    /*background-color: silver;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     border: 1px solid silver;
     border-radius: 1rem;
     overflow: hidden;
