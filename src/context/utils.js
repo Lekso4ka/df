@@ -5,7 +5,6 @@ import {createContext} from "react";
 // Только в наличии
 // По цене от-до
 // Поиск по названию товара
-// По постащику (Автор) - id тех авторов, которые добавили все товары, не относящиеся к собакам (добавить их в BlackList)
 class GoodsFilter {
     constructor(arr) {
         this.data = arr;

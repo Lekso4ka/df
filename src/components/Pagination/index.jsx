@@ -1,7 +1,6 @@
 import "./index.css"
 
 const Pagination = ({hook}) => {
-    console.log(hook.max)
     return <div className="pagination">
         <button
             disabled={hook.page === 1}

@@ -20,6 +20,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import staticNews from "./assets/data/news.json";
+import blackList from "./assets/data/blackList.json";
 
 function App() {
     let n1 = sessionStorage.getItem("dogs-news");
@@ -63,19 +64,36 @@ function App() {
         window.addEventListener("resize", () => {
             setScreen(window.innerWidth);
         })
-        if (token) {
-            api.getProducts()
-                .then(data => {
-                    setProducts(data.products);
-                })
-        }
     }, []);
 
     useEffect(() => {
         if (token) {
             api.getProducts()
                 .then(data => {
-                    setProducts(data.products);
+                    let arr = [...data.products];
+                    blackList.authors.forEach(el => {
+                        arr = utilsVal.filterPro(arr).byAuthor(el, false).data
+                    })
+                    blackList.tags.forEach(el => {
+                        arr = utilsVal.filterPro(arr).byTag(el, false).data
+                    })
+                    let changes = blackList.changeTags;
+                    let changesNames = Object.keys(changes);
+                    arr = arr.map(el => {
+                        let hasTag = changesNames.filter(name => el.tags.includes(name));
+                        hasTag.forEach(name => {
+                            el.tags = el.tags.reduce((acc, tg) => {
+                                if (tg === name && !acc.includes(changes[name])) {
+                                    acc.push(changes[name])
+                                } else if (tg !== name) {
+                                    acc.push(tg)
+                                }
+                                return acc;
+                            }, [])
+                        })
+                        return el;
+                    })
+                    setProducts(arr);
                 })
         } else {
             setProducts([]);

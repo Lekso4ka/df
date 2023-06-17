@@ -74,7 +74,7 @@ export function Products ({
                         </ul>
                     </>}
                     {authors.length > 0 && <>
-                        <h4>Фильтр по тегам</h4>
+                        <h4>Фильтр по поставщикам</h4>
                         <ul>
                             {authors.map(el => <li
                                 key={el}

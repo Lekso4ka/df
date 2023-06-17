@@ -12,7 +12,6 @@ export function AddProduct () {
     const addHandler = (body) => {
         api.addProduct(body)
             .then(data => {
-                console.log(data);
                 if (data) {
                     setProducts(prev => [...prev, data])
                     navigate("/products")
