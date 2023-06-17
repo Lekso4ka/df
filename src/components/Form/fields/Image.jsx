@@ -7,6 +7,7 @@ const Image = ({
     state,
     position
 }) => {
+    // TODO: картинка товара смотрится плохо
     const imgStyle = {
         backgroundImage: `url(${state[0] || Default})`,
         backgroundSize: state[0] ? "cover" : "auto 80%"

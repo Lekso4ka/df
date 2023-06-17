@@ -24,3 +24,4 @@
 + [Урок 19. Добавление товара на сайт](https://youtu.be/RtgeqwRmerA)
 + [Урок 20. Добавление контекста с функциями](https://youtu.be/hwfJwFEZtjQ)
 + [Урок 21. Работа с пагинацией](https://youtu.be/nIAfu55exRA)
++ [Урок 22. Каталог товаров. Фильтры. Часть 1](https://youtu.be/XkPVp3DqB68)

@@ -4,6 +4,7 @@
     padding: 4rem;
     display: grid;
     gap: 4rem;
+    align-content: flex-start;
 }
 .layout .layout {
     padding: 0;

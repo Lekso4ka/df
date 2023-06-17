@@ -3,6 +3,7 @@
     gap: 1rem;
     justify-content: center;
     color: silver;
+    /*align-items: flex-start;*/
 }
 .pagination__btn {
     background-color: white;
