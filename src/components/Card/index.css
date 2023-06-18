@@ -5,6 +5,7 @@
     border: 1px solid silver;
     border-radius: 1rem;
     overflow: hidden;
+    position: relative;
 }
 .card__img {
     margin-top: 2rem;
@@ -97,4 +98,45 @@
 }
 .card__info .lni {
     font-size: 1em;
+}
+.card__discount {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    background-color: red;
+    z-index: 5;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px silver, 0 2px 15px white;
+}
+.card_disabled::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(192, 192, 192, 0.7);
+    z-index: 10;
+}
+.card_disabled::after {
+    content: "Нет на складе";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    color: white;
+    text-shadow: 0 0 5px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    transform: rotate(45deg);
 }

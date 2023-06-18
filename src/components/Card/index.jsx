@@ -1,7 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import "./index.css";
+import UtilsCtx from "../../context/utils";
 
+// TODO: показать все теги ?
 const Card = ({
     _id,
     name,
@@ -10,8 +12,11 @@ const Card = ({
     pictures,
     tags,
     likes,
-    reviews
+    reviews,
+    available,
+    stock
 }) => {
+    const {setPrice} = useContext(UtilsCtx)
     const [isLike, setIsLike] = useState(likes.includes(3))
     const [inBasket, setInBasket] = useState(false);
     const navigate = useNavigate();
@@ -34,11 +39,14 @@ const Card = ({
         e.stopPropagation();
         setIsLike(!isLike);
     }
-    return <Link className="card" to={`/product/${_id}`}>
+    return <Link className={`card ${!available || stock === 0 ? "card_disabled" : ""}`} to={`/product/${_id}`}>
         {tag && <button
             className={`card__btn card__tag card__tag_${tag}`}
             onClick={tagHandler}
         >{tag}</button>}
+        {discount > 0 && <span className="card__discount">
+            {discount}%
+        </span>}
         <span className="card__img" style={imgStyle}></span>
         <span className="card__content">
             <span className="card__title">{name}</span>
@@ -60,11 +68,15 @@ const Card = ({
                     }
                 </span>
             </span>
+            <span className="card__info">
+                <i className="lni lni-thumbs-up"/>
+                {likes.length}
+            </span>
             {/* TODO: предусмотреть разделение цифр с пробелами */}
             <span className="card__price">
                 {discount > 0
                     ? <>
-                        {Math.ceil(price * (1 - discount / 100))} ₽
+                        {setPrice({price: price, discount: discount})} ₽
                         <del className="card__price_discount">{price} ₽</del>
                     </>
                     : price + " ₽"

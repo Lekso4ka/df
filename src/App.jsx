@@ -70,16 +70,9 @@ function App() {
         if (token) {
             api.getProducts()
                 .then(data => {
-                    let arr = [...data.products];
-                    blackList.authors.forEach(el => {
-                        arr = utilsVal.filterPro(arr).byAuthor(el, false).data
-                    })
-                    blackList.tags.forEach(el => {
-                        arr = utilsVal.filterPro(arr).byTag(el, false).data
-                    })
                     let changes = blackList.changeTags;
                     let changesNames = Object.keys(changes);
-                    arr = arr.map(el => {
+                    const arr = data.products.map(el => {
                         let hasTag = changesNames.filter(name => el.tags.includes(name));
                         hasTag.forEach(name => {
                             el.tags = el.tags.reduce((acc, tg) => {
@@ -93,7 +86,12 @@ function App() {
                         })
                         return el;
                     })
-                    setProducts(arr);
+                    const result = utilsVal.filterPro(arr)
+                        .byAuthor(blackList.authors, false)
+                        .byTag(blackList.tags, false)
+                        .byId(blackList.goods, false)
+                        .data
+                    setProducts(result);
                 })
         } else {
             setProducts([]);

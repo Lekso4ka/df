@@ -28,7 +28,14 @@
         "6458c8b6e0bf2c519b9cf31c",
         "644d16a08fbc473fa8a08b82"
     ],
-    "tags": ["buh"],
+    "tags": [
+        "buh"
+    ],
+    "goods": [
+        "64528e138fbc473fa8a2e689",
+        "6475db32e0bf2c519bc513e7",
+        "646dcbcfe0bf2c519bae875b"
+    ],
     "changeTags": {
         "young": "puppies",
         "vitamins": "health",

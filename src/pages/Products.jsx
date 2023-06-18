@@ -31,23 +31,23 @@ export function Products ({
     useEffect(() => {
         if (name === "other") {
             setGoods(filterPro(products)
-                .byTag("delicious", false)
-                .byTag("toys", false)
-                .byTag("outerwear", false)
+                .byTag(["outerwear","toys","delicious"], false)
+                .isPublished()
                 .data
             )
         } else if (name) {
             setGoods(filterPro(products)
                 .byTag(name)
+                .isPublished()
                 .data
             )
         } else {
             setGoods(filterPro(products)
+                .isPublished()
                 .data
             )
         }
         paginate.step(1);
-
     }, [name, products])
 
     useEffect(() => {
