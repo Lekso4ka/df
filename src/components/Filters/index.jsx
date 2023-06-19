@@ -108,9 +108,20 @@ const Filters = ({
             : [...prev, id]
         )
     }
+    const clearFilters = () => {
+        setFTags([]);
+        setFAuthors([]);
+        setFMin(min);
+        setFMax(max);
+        setSearch("");
+        setAvailable(false);
+        setReviews(false);
+        setLikes(false);
+        setDiscount(false);
+    }
     return <div className="filter">
         <Search
-            setState={setSearch}
+            state={[search, setSearch]}
             attr={{
                 placeholder: "Поиск по названию"
             }}
@@ -186,6 +197,7 @@ const Filters = ({
                 >{el}</li>)}
             </ul>
         </div>}
+        <button onClick={clearFilters} className="form__btn">Сбросить фильтры</button>
     </div>
 }
 

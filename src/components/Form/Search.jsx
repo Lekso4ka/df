@@ -1,16 +1,20 @@
 import {useState, useEffect} from "react";
 
-const Search = ({type = "main", setState, attr}) => {
+const Search = ({type = "main", state, attr}) => {
     const [text, setText] = useState("");
     const clearHandler = () => {
         setText("");
     }
     useEffect(() => {
-        if (setState) {
-            console.log("aaa")
-            setState(text);
+        if (state) {
+            state[1](text);
         }
     }, [text])
+    useEffect(() => {
+        if (state?.[0] !== text) {
+            setText(state?.[0]);
+        }
+    }, [state?.[0]])
 
     return <div className="form__row form__row_search">
         <input

@@ -12,10 +12,11 @@ import UtilsCtx from "../context/utils";
 
 import bannersData from "../assets/data/banners.json";
 import addsData from "../assets/data/adds.json";
+import Empty from "../components/Empty";
 // TODO: Добавить новости в футер
 
 export function Home () {
-    const { news, newsLenta, products, screen } = useContext(MainCtx);
+    const { news, newsLenta, products, screen, userId } = useContext(MainCtx);
     const { getNumber, filterPro } = useContext(UtilsCtx);
     const favGoods = filterPro(products).byReviews().data.sort((a,b) => {
         const aSum = a.reviews.reduce((acc, el) => acc + el.rating, 0) / a.reviews.length;
@@ -30,9 +31,11 @@ export function Home () {
         <Layout>
             <Adds {...addsData[0]}/>
         </Layout>
-        {newGoods.length > 0 && <Layout mb={2} dt={4} title="Новинки">
-            {newGoods.map(el => <Card key={el._id} {...el}/>)}
-        </Layout>}
+        {userId ? <>
+            {newGoods.length > 0 && <Layout mb={2} dt={4} title="Новинки">
+                {newGoods.map(el => <Card key={el._id} {...el}/>)}
+            </Layout>}
+        </> : <Empty type="no-user"/>}
         {news.length > 0 && <Layout mb={2} dt={4} title="Новости о собачках">
              <Carousel
                 data={news.map((el, i) => <News key={`new-${i}`} data={el} isTitled={true} />)}
@@ -43,17 +46,21 @@ export function Home () {
             <Adds {...addsData[1]}/>
             <Adds {...addsData[2]}/>
         </Layout>
-        {favGoods.length > 0 && <Layout mb={2} dt={4} title="Популярные товары">
-            {favGoods.map(el => <Card key={el._id} {...el}/>)}
-        </Layout>}
+        {userId ? <>
+            {favGoods.length > 0 && <Layout mb={2} dt={4} title="Популярные товары">
+                {favGoods.map(el => <Card key={el._id} {...el}/>)}
+            </Layout>}
+        </> : <Empty type="no-user"/>}
         <Layout dt={2}>
             <Adds {...addsData[3]}/>
             <Adds {...addsData[4]}/>
         </Layout>
         {/* TODO: не забыть фильтровать недавно просмотренные товары */}
-        {products.length > 0 && <Layout mb={2} dt={4} title="Недавно просмотренные">
-            {products.map(el => <Card key={el._id} {...el}/>).slice(0, screen < 1064 ? 2 : 4)}
-        </Layout>}
+        {userId ? <>
+            {products.length > 0 && <Layout mb={2} dt={4} title="Недавно просмотренные">
+                {products.map(el => <Card key={el._id} {...el}/>).slice(0, screen < 1064 ? 2 : 4)}
+            </Layout>}
+        </> : <Empty type="no-user"/>}
         {newsLenta.length > 0 && <Layout mb={1} dt={2} title="Новости Lenta.ru">
             <Carousel
                 data={newsLenta.map((el, i) => <News key={`new-${i}`} data={el}/>)}

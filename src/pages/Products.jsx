@@ -10,9 +10,9 @@ import MainCtx from "../context/main"
 import UtilsCtx from "../context/utils"
 
 import usePaginate from "../hooks/usePaginate";
+import Empty from "../components/Empty";
 
 export function Products ({
-    isFav = false,
     isCat = false
 }) {
     const { name } = useParams()
@@ -58,22 +58,26 @@ export function Products ({
         paginate.step(1);
     }, [filterGoods])
     return <>
-        {isCat && <Banner title={names[name] || name} main={false} bg="paws" pattern={true}/>}
-        <Layout title={isFav && "Любимые товары"} mb={3} dt={4}>
-            <Layout>
-                <Filters
-                    goods={goods}
-                    filterGoods={filterGoods}
-                    setFilterGoods={setFilterGoods}
-                />
-            </Layout>
-            <div style={{gridColumnEnd: "span 3", display: "grid", gap: "2rem", alignContent: "flex-start"}}>
-                <Layout mb={1} dt={3}>
-                    {paginate.getPage().map(el => <Card key={el._id} {...el}/>)}
+        {goods.length > 0 && <>
+            {isCat && <Banner title={names[name] || name} main={false} bg="paws" pattern={true}/>}
+            <Layout mb={3} dt={4} fullHeight={true}>
+                <Layout>
+                    <Filters
+                        goods={goods}
+                        filterGoods={filterGoods}
+                        setFilterGoods={setFilterGoods}
+                    />
                 </Layout>
-                <Pagination hook={paginate}/>
-            </div>
-
-        </Layout>
+                <div style={{gridColumnEnd: "span 3", display: "grid", gap: "2rem", alignContent: filterGoods.length > 0 ? "flex-start" : "stretch"}}>
+                    {filterGoods.length > 0 ? <>
+                        <Layout mb={1} dt={3}>
+                            {paginate.getPage().map(el => <Card key={el._id} {...el}/>)}
+                        </Layout>
+                        <Pagination hook={paginate}/>
+                    </> :<Empty type="filter"/>}
+                </div>
+            </Layout>
+        </>}
+        {goods.length === 0 && <Empty type="category"/>}
 </>
 }

@@ -1,0 +1,39 @@
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.empty_link {
+    flex-direction: row;
+    gap: 0
+}
+.empty_link .nav__item {
+    color: orangered
+}
+.empty__icon {
+    font-size: 10rem;
+    color: grey;
+}
+.empty__text {
+    color: grey;
+}
+.empty__title {
+    font-size: 4rem;
+}
+.empty__loader {
+    transform: scale(1, -1);
+    animation: load 2s linear infinite;
+}
+.empty__loader+.empty__title {
+    font-size: 3rem;
+}
+@keyframes load {
+    from {
+        transform: scale(1, -1) rotate(0);
+    }
+    to {
+        transform: scale(1, -1) rotate(-360deg);
+    }
+}

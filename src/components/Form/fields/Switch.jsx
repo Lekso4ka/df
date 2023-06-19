@@ -11,6 +11,7 @@ const Switch = ({
             value={state[0]}
             type="checkbox"
             {...attr}
+            checked={state[0]}
             onChange={(e) => state[1](e.target.checked)}
         />
         <label className="form__lbl form__lbl_switch" htmlFor={name}>

@@ -10,7 +10,8 @@ import {
     Home,
     Products,
     Profile,
-    SingleProduct
+    SingleProduct,
+    Favorites
 } from "./pages"
 import Main from "./context/main";
 import Utils, {initialValue as utilsVal} from "./context/utils";
@@ -18,6 +19,7 @@ import Api from "./Api";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Empty from "./components/Empty";
 
 import staticNews from "./assets/data/news.json";
 import blackList from "./assets/data/blackList.json";
@@ -125,7 +127,7 @@ function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/products" element={<Products/>}/>
                     <Route path="/products/category/:name" element={<Products isCat={true}/>}/>
-                    <Route path="/products/favorites" element={<Products isFav={true}/>}/>
+                    <Route path="/products/favorites" element={<Favorites />}/>
                     <Route path="/product/:id" element={<SingleProduct/>}/>
                     <Route path="/product/add" element={<AddProduct/>}/>
                     <Route path="/basket" element={<Basket/>}/>
@@ -133,6 +135,7 @@ function App() {
                     <Route path="/auth" element={<Auth/>}/>
                     <Route path="/delivery" element={<Delivery/>}/>
                     <Route path="/about" element={<About/>}/>
+                    <Route path="/*" element={<Empty type="404"/>}/>
                 </Routes>
             </main>
             <Footer/>

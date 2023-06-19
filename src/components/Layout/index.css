@@ -24,6 +24,10 @@
 .layout_gap-small {
     gap: 2rem;
 }
+.layout_h-100 {
+    height: 100%;
+    align-content: stretch;
+}
 .layout__title {
     font-size: 6rem;
 }
