@@ -22,18 +22,11 @@ button {
 }
 ul {
     padding: 0;
+    margin: 0;
     list-style-type: none;
 }
 #root {
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-}
-
-.filter__item {
-    color: grey;
-    cursor: pointer;
-}
-.filter__item:hover {
-    color: black;
 }

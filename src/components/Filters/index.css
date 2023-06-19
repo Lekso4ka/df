@@ -1,0 +1,36 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.filter__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.filter__price {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.filter__price .form__row {
+    gap: 0;
+}
+.filter__content {
+    border: 1px solid silver;
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: calc(2rem * 1.2 * 10 + 1rem);
+}
+.filter__line {
+    opacity: .8;
+    cursor: pointer;
+    color: grey;
+}
+.filter__line_active {
+    color: black;
+}
+.filter__line:hover {
+    opacity: 1;
+}

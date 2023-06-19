@@ -93,17 +93,11 @@
     },
     "isPublished": {
       "format": "switch",
-      "label": "Опубликовать",
-      "attr": {
-        "type": "checkbox"
-      }
+      "label": "Опубликовать"
     },
     "available": {
       "format": "switch",
-      "label": "Доступно для заказа",
-      "attr": {
-        "type": "checkbox"
-      }
+      "label": "Доступно для заказа"
     },
     "wight": {
       "format": "input",

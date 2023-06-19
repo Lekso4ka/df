@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
+import Filters from "../components/Filters";
 
 import MainCtx from "../context/main"
 import UtilsCtx from "../context/utils"
@@ -19,8 +20,7 @@ export function Products ({
     const {filterPro, getUniqueTags, getUniqueAuthors} = useContext(UtilsCtx);
     const [goods, setGoods] = useState([]);
     const [filterGoods, setFilterGoods] = useState([]);
-    const [authors, setAuthors] = useState([]);
-    const [tags, setTags] = useState([]);
+
     const names = {
         "outerwear": "Одежда",
         "toys": "Игрушки",
@@ -51,10 +51,9 @@ export function Products ({
     }, [name, products])
 
     useEffect(() => {
-        setAuthors(getUniqueAuthors(goods));
-        setTags(getUniqueTags(goods));
         setFilterGoods(goods);
     }, [goods])
+
     useEffect(() => {
         paginate.step(1);
     }, [filterGoods])
@@ -62,28 +61,11 @@ export function Products ({
         {isCat && <Banner title={names[name] || name} main={false} bg="paws" pattern={true}/>}
         <Layout title={isFav && "Любимые товары"} mb={3} dt={4}>
             <Layout>
-                <div className="filter">
-                    {tags.length > 0 && <>
-                        <h4>Фильтр по тегам</h4>
-                        <ul>
-                            {tags.map(el => <li
-                                key={el}
-                                className="filter__item"
-                                onClick={() => setFilterGoods(filterPro(goods).byTag(el).data)}
-                            >{el}</li>)}
-                        </ul>
-                    </>}
-                    {authors.length > 0 && <>
-                        <h4>Фильтр по поставщикам</h4>
-                        <ul>
-                            {authors.map(el => <li
-                                key={el}
-                                className="filter__item"
-                                onClick={() => setFilterGoods(filterPro(goods).byAuthor(el).data)}
-                            >{el}</li>)}
-                        </ul>
-                    </>}
-                </div>
+                <Filters
+                    goods={goods}
+                    filterGoods={filterGoods}
+                    setFilterGoods={setFilterGoods}
+                />
             </Layout>
             <div style={{gridColumnEnd: "span 3", display: "grid", gap: "2rem", alignContent: "flex-start"}}>
                 <Layout mb={1} dt={3}>

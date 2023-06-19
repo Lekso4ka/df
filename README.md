@@ -3,6 +3,11 @@
 [Результат](https://lekso4ka.github.io/df/)
 
 ## Видео-уроки
+
+[Ссылка на плейлист](https://www.youtube.com/playlist?list=PLa2VvQ0paT1k57e45Y5cOcECmBg4Ai10C)
+
+---
+
 + [Урок 1. Создание приложения](https://youtu.be/gpkETxYIJAg) 
 + [Урок 2. Создание SPA с несколькими страницами](https://youtu.be/RKaP02teWdU) 
 + [Урок 3. Создание шаблона для выравнивания контента по ширине страницы](https://youtu.be/64gqWVYHQ-U) 
@@ -27,3 +32,4 @@
 + [Урок 22. Каталог товаров. Фильтры. Часть 1](https://youtu.be/XkPVp3DqB68)
 + [Урок 22. Каталог товаров. Фильтры. Часть 1](https://youtu.be/XkPVp3DqB68)
 + [Урок 23. Проработка класса с фильтрами](https://youtu.be/9sE_BPau6h0)
++ [Урок 24. Каталог товаров. Фильтры. Часть 2](https://youtu.be/aGLfdCcDEuA)
