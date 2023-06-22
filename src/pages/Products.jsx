@@ -17,7 +17,7 @@ export function Products ({
 }) {
     const { name } = useParams()
     const {products} = useContext(MainCtx);
-    const {filterPro, getUniqueTags, getUniqueAuthors} = useContext(UtilsCtx);
+    const {filterPro, sortPro} = useContext(UtilsCtx);
     const [goods, setGoods] = useState([]);
     const [filterGoods, setFilterGoods] = useState([]);
 
@@ -27,7 +27,7 @@ export function Products ({
         "delicious": "Лакомства",
         "other": "Прочие товары",
     }
-    const paginate = usePaginate(filterGoods, 12);
+    const paginate = usePaginate(filterGoods, 100);
     useEffect(() => {
         if (name === "other") {
             setGoods(filterPro(products)
@@ -51,7 +51,7 @@ export function Products ({
     }, [name, products])
 
     useEffect(() => {
-        setFilterGoods(goods);
+        setFilterGoods(sortPro(goods).byDate().data);
     }, [goods])
 
     useEffect(() => {

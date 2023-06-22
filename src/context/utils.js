@@ -106,6 +106,89 @@ class GoodsFilter {
         return this;
     }
 }
+
+
+// По доступности
+// По опубликованности
+
+class GoodsSort {
+    constructor(arr) {
+        this.data = arr; // up | down
+    }
+    byPrice(dir = "up") {
+        this.data.sort((a, b) => {
+            const aResult = a.price * (1 - a.discount / 100);
+            const bResult = b.price * (1 - b.discount / 100);
+            return dir === "up"
+                ? aResult - bResult
+                : bResult - aResult;
+        });
+        return this;
+    }
+    byDate(dir = "down") {
+        this.data.sort((a, b) => {
+            const aResult = new Date(a.created_at).getTime();
+            const bResult = new Date(b.created_at).getTime();
+            return dir === "up"
+                ? aResult - bResult
+                : bResult - aResult;
+        });
+        return this;
+    }
+    byDiscount(dir = "down") {
+        this.data.sort((a, b) => dir === "up"
+            ? a.discount - b.discount
+            : b.discount - a.discount);
+        return this;
+    }
+    byQuantity(dir = "down") {
+        this.data.sort((a, b) => dir === "up"
+            ? a.stock - b.stock
+            : b.stock - a.stock);
+        return this;
+    }
+    byLikes(dir = "down") {
+        this.data.sort((a, b) => dir === "up"
+            ? a.likes.length - b.likes.length
+            : b.likes.length - a.likes.length);
+        return this;
+    }
+    byReviews(dir = "down") {
+        this.data.sort((a, b) => dir === "up"
+            ? a.reviews.length - b.reviews.length
+            : b.reviews.length - a.reviews.length);
+        return this;
+    }
+    byRating(dir = "down") {
+        this.data.sort((a, b) => {
+            const aSum = a.reviews.reduce((acc, el) => acc + el.rating, 0)
+            const bSum = b.reviews.reduce((acc, el) => acc + el.rating, 0)
+            const aResult = aSum ? aSum / a.reviews.length : aSum;
+            const bResult = bSum ? bSum / b.reviews.length : bSum;
+            return dir === "up"
+                ? aResult - bResult
+                : bResult - aResult;
+        });
+        return this;
+    }
+    byPopular(dir = "down", withLikes = false) {
+        this.byReviews(dir);
+        if (withLikes) {
+            this.byLikes(dir);
+        }
+        this.byRating(dir);
+        return this;
+    }
+    byTitle(dir = "up") {
+        this.data.sort((a, b) => {
+            const result = a.name.trim().toLowerCase() > b.name.trim().toLowerCase() ? 1 : -1;
+            return dir === "up"
+                ? result
+                : result * -1;
+        });
+        return this;
+    }
+}
 // TODO: предусмотреть склонение слова в зависимости от количества
 export const initialValue = {
     getNumber: (max = 11, min = 0) => {
@@ -123,6 +206,7 @@ export const initialValue = {
         })
         return acc;
     }, []),
+    sortPro: (arr) => new GoodsSort(arr),
     getUniqueAuthors : (arr) => arr.reduce((acc, el) => {
         if (!acc.includes(el.author._id)) {
             acc.push(el.author._id)

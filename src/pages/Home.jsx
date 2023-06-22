@@ -17,15 +17,9 @@ import Empty from "../components/Empty";
 
 export function Home () {
     const { news, newsLenta, products, screen, userId } = useContext(MainCtx);
-    const { getNumber, filterPro } = useContext(UtilsCtx);
-    const favGoods = filterPro(products).byReviews().data.sort((a,b) => {
-        const aSum = a.reviews.reduce((acc, el) => acc + el.rating, 0) / a.reviews.length;
-        const bSum = b.reviews.reduce((acc, el) => acc + el.rating, 0) / b.reviews.length;
-        return bSum - aSum;
-    }).slice(0, screen < 1064 ? 2 : 4);
-    const newGoods = [...products].sort((a,b) => {
-        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    }).slice(0, screen < 1064 ? 2 : 4);
+    const { sortPro } = useContext(UtilsCtx);
+    const favGoods = sortPro(products).byPopular("down", true).data.slice(0, screen < 1064 ? 2 : 4);
+    const newGoods = sortPro(products).byDate().data.slice(0, screen < 1064 ? 2 : 4);
     return <>
         <Banner {...bannersData[2]} pattern={false} bgPos="50% 38%"/>
         <Layout>
