@@ -30,3 +30,9 @@ ul {
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
+.product__img {
+    width: 100%;
+}
+th {
+    text-align: left;
+}

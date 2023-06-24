@@ -35,3 +35,4 @@
 + [Урок 24. Каталог товаров. Фильтры. Часть 2](https://youtu.be/aGLfdCcDEuA)
 + [Урок 25. Обработка отсутствующих значений](https://youtu.be/K78j9WNcDik)
 + [Урок 26. Создание методов сортировки](https://youtu.be/nWNcxVFoPEQ)
++ [Урок 27. Страница одного товара. Часть 1](https://youtu.be/pFKd1jFCSyU)

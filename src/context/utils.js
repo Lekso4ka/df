@@ -197,6 +197,14 @@ export const initialValue = {
     setPrice: (el) => {
         return +(el.price * (1 - el.discount / 100)).toFixed(2)
     },
+    setRating: (el, round = false) => {
+        if (el.reviews.length === 0) {
+            return 0
+        } else {
+            const result = el.reviews.reduce((acc, rev) => acc + rev.rating, 0) / el.reviews.length.toFixed(1)
+            return round ? Math.round(result) : result;
+        }
+    },
     filterPro: (arr) => new GoodsFilter(arr),
     getUniqueTags : (arr) => arr.reduce((acc, el) => {
         el.tags.forEach(tag => {
@@ -212,7 +220,24 @@ export const initialValue = {
             acc.push(el.author._id)
         }
         return acc;
-    }, [])
+    }, []),
+    setDescription: (text) => {
+        let str = "";
+        const result = [];
+        let separators = ["\r", "\n", ".", "!", "?"];
+        for (let i = 0, cnt = text.length; i < cnt; i++) {
+            if (separators.includes(text[i])) {
+                result.push(str);
+                str = "";
+            } else {
+                str += text[i];
+            }
+        }
+        if (str) {
+            result.push(str);
+        }
+        return result;
+    }
 }
 
 const Utils = createContext(initialValue);
