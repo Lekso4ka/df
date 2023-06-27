@@ -237,6 +237,19 @@ export const initialValue = {
             result.push(str);
         }
         return result;
+    },
+    setStars: (n) => {
+        const stars = [];
+        let i = 0;
+        while (i < n) {
+            stars.push(<i className="lni lni-star-fill" key={i}/>)
+            i++;
+        }
+        while (i < 5) {
+            stars.push(<i className="lni lni-star-empty" key={i}/>)
+            i++;
+        }
+        return stars;
     }
 }
 

@@ -74,20 +74,21 @@ function App() {
                 .then(data => {
                     let changes = blackList.changeTags;
                     let changesNames = Object.keys(changes);
-                    const arr = data.products.map(el => {
-                        let hasTag = changesNames.filter(name => el.tags.includes(name));
-                        hasTag.forEach(name => {
-                            el.tags = el.tags.reduce((acc, tg) => {
-                                if (tg === name && !acc.includes(changes[name])) {
-                                    acc.push(changes[name])
-                                } else if (tg !== name) {
-                                    acc.push(tg)
-                                }
-                                return acc;
-                            }, [])
-                        })
-                        return el;
-                    })
+                    const arr = data.products;
+                    // const arr = data.products.map(el => {
+                    //     let hasTag = changesNames.filter(name => el.tags.includes(name));
+                    //     hasTag.forEach(name => {
+                    //         el.tags = el.tags.reduce((acc, tg) => {
+                    //             if (tg === name && !acc.includes(changes[name])) {
+                    //                 acc.push(changes[name])
+                    //             } else if (tg !== name) {
+                    //                 acc.push(tg)
+                    //             }
+                    //             return acc;
+                    //         }, [])
+                    //     })
+                    //     return el;
+                    // })
                     const result = utilsVal.filterPro(arr)
                         .byAuthor(blackList.authors, false)
                         .byTag(blackList.tags, false)

@@ -36,3 +36,4 @@
 + [Урок 25. Обработка отсутствующих значений](https://youtu.be/K78j9WNcDik)
 + [Урок 26. Создание методов сортировки](https://youtu.be/nWNcxVFoPEQ)
 + [Урок 27. Страница одного товара. Часть 1](https://youtu.be/pFKd1jFCSyU)
++ [Урок 28. Страница одного товара. Часть 2](https://youtu.be/lXS7MYzYlaE)
