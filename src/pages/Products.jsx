@@ -27,7 +27,7 @@ export function Products ({
         "delicious": "Лакомства",
         "other": "Прочие товары",
     }
-    const paginate = usePaginate(filterGoods, 100);
+    const paginate = usePaginate(filterGoods, 9);
     useEffect(() => {
         if (name === "other") {
             setGoods(filterPro(products)
