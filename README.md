@@ -30,7 +30,6 @@
 + [Урок 20. Добавление контекста с функциями](https://youtu.be/hwfJwFEZtjQ)
 + [Урок 21. Работа с пагинацией](https://youtu.be/nIAfu55exRA)
 + [Урок 22. Каталог товаров. Фильтры. Часть 1](https://youtu.be/XkPVp3DqB68)
-+ [Урок 22. Каталог товаров. Фильтры. Часть 1](https://youtu.be/XkPVp3DqB68)
 + [Урок 23. Проработка класса с фильтрами](https://youtu.be/9sE_BPau6h0)
 + [Урок 24. Каталог товаров. Фильтры. Часть 2](https://youtu.be/aGLfdCcDEuA)
 + [Урок 25. Обработка отсутствующих значений](https://youtu.be/K78j9WNcDik)
