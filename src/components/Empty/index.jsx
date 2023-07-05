@@ -33,6 +33,10 @@ const Empty = ({type = "load"}) => {
         "load": {
             icon: "reload",
             title: "Идет загрузка"
+        },
+        "review": {
+            icon: "users",
+            text: "Тут пока еще нет отзывов"
         }
     }
     return <>

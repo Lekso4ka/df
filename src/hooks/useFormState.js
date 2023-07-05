@@ -45,13 +45,9 @@ const useProductState = () => {
 const useReviewState = () => {
     const rating = useState(0);
     const text = useState("");
-    const name = useState("Отзыв о товаре");
-    const city = useState("DogLand");
     return {
         rating,
-        text,
-        name,
-        city
+        text
     }
 }
 

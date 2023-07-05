@@ -22,6 +22,7 @@ const Form = ({
     const regFields = ["email", "name", "avatar", "about", "password"];
     const pwdFields = ["email", "token", "password"];
     const productFields = ["name", "pictures", "price", "discount", "stock", "wight", "description", "tags", "available", "isPublished"];
+    const reviewFields = ["rating", "text"];
     return <>
         {type === "auth" && <>
             {fieldsType === "login" && <AuthForm
@@ -55,7 +56,11 @@ const Form = ({
             />
         </>}
         {type === "review" && <>
-            <ReviewForm/>
+            <ReviewForm
+                fields={reviewFields}
+                btnText="Оставить отзыв"
+                cb={cb}
+            />
         </>}
     </>
 }

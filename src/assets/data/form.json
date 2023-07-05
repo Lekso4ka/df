@@ -147,20 +147,6 @@
       "attr": {
         "required": true
       }
-    },
-    "name": {
-      "format": "input",
-      "label": "Название отзыва",
-      "attr": {
-        "type": "text"
-      }
-    },
-    "city": {
-      "format": "input",
-      "label": "Город",
-      "attr": {
-        "type": "text"
-      }
     }
   }
 }

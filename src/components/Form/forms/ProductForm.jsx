@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 import formData from "../../../assets/data/form.json";
 import useFormState from "../../../hooks/useFormState";
 import {renderTags} from "../utils";

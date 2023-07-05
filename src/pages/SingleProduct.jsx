@@ -6,12 +6,10 @@ import Empty from "../components/Empty";
 import Product from "../components/Product";
 
 import MainCtx from "../context/main";
-import UtilsCtx from "../context/utils";
 
 export function SingleProduct () {
     const {id} = useParams();
     const {api} = useContext(MainCtx);
-    const {} = useContext(UtilsCtx);
     const [product, setProduct] = useState({});
 
     useEffect(() => {
@@ -20,9 +18,6 @@ export function SingleProduct () {
                 setProduct(data);
             })
     }, [])
-    useEffect(() => {
-        console.log(product.stock);
-    }, [product])
     return <>
         {product.name ? <Layout title={product.name} dt={2}>
             <div>
@@ -34,7 +29,11 @@ export function SingleProduct () {
             </div>
             <Product.Info {...product} setProduct={setProduct}/>
             <Product.Description description={product.description}/>
-            <Product.Reviews reviews={product.reviews}/>
+            <Product.Reviews
+                reviews={product.reviews}
+                id={id}
+                setProduct={setProduct}
+            />
         </Layout> : <Empty type="load"/>}
     </>
 }
