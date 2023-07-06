@@ -37,3 +37,4 @@
 + [Урок 27. Страница одного товара. Часть 1](https://youtu.be/pFKd1jFCSyU)
 + [Урок 28. Страница одного товара. Часть 2](https://youtu.be/lXS7MYzYlaE)
 + [Урок 29. Страница одного товара. Часть 3](https://youtu.be/S5INFXSRBBA)
++ [Урок 30. Просмотренные товары](https://youtu.be/RefjpmAbafQ)

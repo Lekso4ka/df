@@ -7,15 +7,18 @@ import Product from "../components/Product";
 
 import MainCtx from "../context/main";
 
+// TODO: Перейти на страницу поставщика
+
 export function SingleProduct () {
     const {id} = useParams();
-    const {api} = useContext(MainCtx);
+    const {api, setResent} = useContext(MainCtx);
     const [product, setProduct] = useState({});
 
     useEffect(() => {
         api.getProduct(id)
             .then(data => {
                 setProduct(data);
+                setResent(prev => [data, ...prev.filter(el => el._id !== id)])
             })
     }, [])
     return <>

@@ -1,12 +1,12 @@
-import {useContext, useState} from "react";
+import {useContext, useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import UtilsCtx from "../../context/utils";
 import MainCtx from "../../context/main";
 const Info = (product) => {
-    const {setPrice, setRating, setStars} = useContext(UtilsCtx);
-    const {userId, api, setProducts} = useContext(MainCtx);
+    const {setPrice, setRating, setStars, setCntWord} = useContext(UtilsCtx);
+    const {userId, api, setProducts, setBasket, basket} = useContext(MainCtx);
     const [isLike, setIsLike] = useState(product.likes.includes(userId));
-    const [cnt, setCnt] = useState(0);
+    const [cnt, setCnt] = useState(basket.filter(el => el._id === product._id)?.[0]?.cnt || 0);
     const navigate = useNavigate();
     const likeHandler = () => {
         setIsLike(!isLike);
@@ -22,6 +22,31 @@ const Info = (product) => {
             })
     }
 
+    useEffect(() => {
+        if (cnt) {
+            if (basket.filter(el => el._id === product._id).length) {
+                setBasket(prev => prev.map(el => {
+                    if (el._id === product._id) {
+                        el.cnt = cnt;
+                    }
+                    return el;
+                }))
+            } else {
+                setBasket(prev => [...prev, {
+                    _id: product._id,
+                    name: product.name,
+                    price: product.price,
+                    discount: product.discount,
+                    stock: product.stock,
+                    pictures: product.pictures,
+                    cnt: cnt
+                }])
+            }
+        } else {
+            setBasket(prev => prev.filter(el => el._id !== product._id));
+        }
+    }, [cnt])
+
     return <div className="product__info">
         <h3 className="product__price">
             {product.discount
@@ -35,7 +60,7 @@ const Info = (product) => {
         </h3>
         <div className="product__rate">
             <span>{setStars(setRating(product))}</span>
-            <span>{product.reviews.length} отзывов</span>
+            <span>{product.reviews.length} {setCntWord(product.reviews.length, "комментариев", "комментарий", "комментария")}</span>
             <span>
                 <i className="lni lni-thumbs-up"/>
                 &nbsp;{product.likes.length}

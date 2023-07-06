@@ -191,10 +191,10 @@ const Filters = ({
             <h4>Поставщики</h4>
             <ul className="filter__content">
                 {authors.map(el => <li
-                    key={el}
-                    className={`filter__line ${fAuthors.includes(el) ? "filter__line_active" : ""}`}
-                    onClick={() => authorsHandler(el)}
-                >{el}</li>)}
+                    key={el._id}
+                    className={`filter__line ${fAuthors.includes(el._id) ? "filter__line_active" : ""}`}
+                    onClick={() => authorsHandler(el._id)}
+                >{el.name}</li>)}
             </ul>
         </div>}
         <button onClick={clearFilters} className="form__btn">Сбросить фильтры</button>

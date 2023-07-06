@@ -33,8 +33,18 @@ function App() {
     if (n2) {
         n2 = JSON.parse(n2);
     }
+    let bk = sessionStorage.getItem("basket");
+    if (bk) {
+        bk = JSON.parse(bk);
+    }
+    let rs = sessionStorage.getItem("resent");
+    if (rs) {
+        rs = JSON.parse(rs);
+    }
     const [news, setNews] = useState(n1 || []);
     const [newsLenta, setNewsLenta] = useState(n2 || []);
+    const [basket, setBasket] = useState(bk || []);
+    const [resent, setResent] = useState(rs || []);
     const [token, setToken] = useState(localStorage.getItem("user-token"));
     const [userId, setUserId] = useState(localStorage.getItem("user-id"));
     const [api, setApi] = useState(new Api(token));
@@ -109,6 +119,15 @@ function App() {
         setToken(localStorage.getItem("user-token"))
     }, [userId])
 
+    useEffect(() => {
+        sessionStorage.setItem("resent", JSON.stringify(resent))
+    }, [resent])
+
+    useEffect(() => {
+        console.log(basket);
+        sessionStorage.setItem("basket", JSON.stringify(basket))
+    }, [basket])
+
     const mainCtx = {
         news,
         newsLenta,
@@ -117,7 +136,11 @@ function App() {
         setUserId,
         screen,
         products,
-        setProducts
+        setProducts,
+        basket,
+        setBasket,
+        resent,
+        setResent
     }
 
     return <Main.Provider value={mainCtx}>

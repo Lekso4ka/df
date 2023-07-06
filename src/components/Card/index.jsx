@@ -1,7 +1,8 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import "./index.css";
 import UtilsCtx from "../../context/utils";
+import MainCtx from "../../context/main";
 
 // TODO: показать все теги ?
 const Card = ({
@@ -16,14 +17,16 @@ const Card = ({
     available,
     stock
 }) => {
-    const {setPrice} = useContext(UtilsCtx)
-    const [isLike, setIsLike] = useState(likes.includes(3))
-    const [inBasket, setInBasket] = useState(false);
+    const {setPrice, setCntWord} = useContext(UtilsCtx)
+    const {api, setProducts, setBasket, basket, userId} = useContext(MainCtx)
+    const [isLike, setIsLike] = useState(likes.includes(userId))
+    const [inBasket, setInBasket] = useState(basket.filter(el => el._id === _id).length > 0);
     const navigate = useNavigate();
     const tag = tags[tags.length - 1]
     const imgStyle = {
         backgroundImage: `url(${pictures})`
     }
+
     const tagHandler = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -33,11 +36,33 @@ const Card = ({
         e.preventDefault();
         e.stopPropagation();
         setInBasket(!inBasket);
+        if (!inBasket) {
+            setBasket(prev => [...prev, {
+                _id,
+                name,
+                price,
+                discount,
+                stock,
+                pictures,
+                cnt: 1
+            }])
+        } else {
+            setBasket(prev => prev.filter(el => el._id !== _id));
+        }
     }
     const likeHandler = (e) => {
         e.preventDefault();
         e.stopPropagation();
         setIsLike(!isLike);
+        api.setLike(_id, !isLike)
+            .then(data => {
+                setProducts(prev => prev.map(el => {
+                    if (el._id === _id) {
+                        return data;
+                    }
+                    return el;
+                }))
+            })
     }
     return <Link className={`card ${!available || stock === 0 ? "card_disabled" : ""}`} to={`/product/${_id}`}>
         {tag && <button
@@ -60,10 +85,9 @@ const Card = ({
                         <i className="lni lni-star-fill"/>
                     </span>
                 }
-                {/* TODO: предусмотреть склонение слова в зависимости от количества */}
                 <span className="card__review">
                     {reviews.length > 0
-                        ? `${reviews.length} отзывов`
+                        ? `${reviews.length} ${setCntWord(reviews.length)}`
                         : "нет отзывов"
                     }
                 </span>

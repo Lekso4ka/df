@@ -16,7 +16,14 @@ import Empty from "../components/Empty";
 // TODO: Добавить новости в футер
 
 export function Home () {
-    const { news, newsLenta, products, screen, userId } = useContext(MainCtx);
+    const {
+        news,
+        newsLenta,
+        products,
+        screen,
+        userId,
+        resent
+    } = useContext(MainCtx);
     const { sortPro } = useContext(UtilsCtx);
     const favGoods = sortPro(products).byPopular("down", true).data.slice(0, screen < 1064 ? 2 : 4);
     const newGoods = sortPro(products).byDate().data.slice(0, screen < 1064 ? 2 : 4);
@@ -49,10 +56,9 @@ export function Home () {
             <Adds {...addsData[3]}/>
             <Adds {...addsData[4]}/>
         </Layout>
-        {/* TODO: не забыть фильтровать недавно просмотренные товары */}
         {userId ? <>
-            {products.length > 0 && <Layout mb={2} dt={4} title="Недавно просмотренные">
-                {products.map(el => <Card key={el._id} {...el}/>).slice(0, screen < 1064 ? 2 : 4)}
+            {resent.length > 0 && <Layout mb={2} dt={4} title="Вы недавно смотрели">
+                {resent.map(el => <Card key={el._id} {...el}/>).slice(0, screen < 1064 ? 2 : 4)}
             </Layout>}
         </> : <Empty type="no-user"/>}
         {newsLenta.length > 0 && <Layout mb={1} dt={2} title="Новости Lenta.ru">
