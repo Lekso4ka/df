@@ -1,0 +1,30 @@
+.sort {
+    display: flex;
+    gap: 2rem;
+    align-self: flex-start;
+}
+.sort__btn {
+    border: 1px solid silver;
+    background-color: transparent;
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex: 1;
+}
+.sort__btn i {
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+.sort__btn span {
+    flex: 1;
+    text-align: center;
+}
+
+.sort__btn_active {
+    background-color: silver;
+}
+.sort__btn_active i {
+    color: white;
+}
