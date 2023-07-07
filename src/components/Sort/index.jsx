@@ -11,23 +11,30 @@ const Sort = ({
     const [sPrice, setSPrice] = useState(0);
     const [sDiscount, setSDiscount] = useState(0);
     const [sPopular, setSPopular] = useState(0);
-    // TODO: Не работает сортировка при изменении фильтра
+    const [sort, setSort] = useState(sortPro(filterGoods))
     useEffect(() => {
-        setState(prev => [...sortPro(prev).byDate().data]);
+        sort.byDate();
         if (sName) {
-            setState(prev => [...sortPro(prev).byTitle(sName === 1 ? "up" : "down").data]);
+            sort.byTitle(sName === 1 ? "up" : "down");
         }
         if (sPopular) {
-            setState(prev => [...sortPro(prev).byPopular(sPopular === 1 ? "down" : "up", true).data]);
+            sort.byPopular(sPopular === 1 ? "down" : "up", true);
         }
         if (sPrice) {
-            setState(prev => [...sortPro(prev).byPrice(sPrice === 1 ? "up" : "down").data]);
+            sort.byPrice(sPrice === 1 ? "up" : "down");
         }
         if (sDiscount) {
-            setState(prev => [...sortPro(prev).byDiscount(sDiscount === 1 ? "down" : "up").data]);
+            sort.byDiscount(sDiscount === 1 ? "down" : "up");
         }
-    }, [sName, sPrice, sDiscount, sPopular, filterGoods])
+        setState([...sort.data]);
 
+    }, [sName, sPrice, sDiscount, sPopular, sort.data])
+
+    useEffect(() => {
+        if (filterGoods.length !== sort.data?.length) {
+            setSort(sortPro(filterGoods).byDate());
+        }
+    }, [filterGoods])
     return <>
         <div className="sort">
             <button

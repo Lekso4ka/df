@@ -18,10 +18,9 @@ export function Products ({
 }) {
     const { name } = useParams()
     const {products} = useContext(MainCtx);
-    const {filterPro, sortPro} = useContext(UtilsCtx);
+    const {filterPro} = useContext(UtilsCtx);
     const [goods, setGoods] = useState([]);
     const [filterGoods, setFilterGoods] = useState([]);
-    const [sortGoods, setSortGoods] = useState([]);
 
     const names = {
         "outerwear": "Одежда",
@@ -29,7 +28,7 @@ export function Products ({
         "delicious": "Лакомства",
         "other": "Прочие товары",
     }
-    const paginate = usePaginate(sortGoods, 9);
+    const paginate = usePaginate(filterGoods, 9);
     useEffect(() => {
         if (name === "other") {
             setGoods(filterPro(products)
@@ -58,7 +57,6 @@ export function Products ({
 
     useEffect(() => {
         paginate.step(1);
-        setSortGoods([...sortPro(filterGoods).byDate().data])
     }, [filterGoods])
     return <>
         {goods.length > 0 && <>
@@ -72,8 +70,11 @@ export function Products ({
                     />
                 </Layout>
                 <div style={{gridColumnEnd: "span 3", display: "grid", gap: "2rem", alignContent: filterGoods.length > 0 ? "flex-start" : "stretch"}}>
-                    <Sort setState={setSortGoods} filterGoods={filterGoods}/>
-                    {sortGoods.length > 0 ? <>
+                    <Sort
+                        setState={setFilterGoods}
+                        filterGoods={filterGoods}
+                    />
+                    {filterGoods?.length > 0 ? <>
                         <Layout mb={1} dt={3}>
                             {paginate.getPage().map(el => <Card key={el._id} {...el}/>)}
                         </Layout>

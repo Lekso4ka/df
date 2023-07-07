@@ -124,7 +124,6 @@ function App() {
     }, [resent])
 
     useEffect(() => {
-        console.log(basket);
         sessionStorage.setItem("basket", JSON.stringify(basket))
     }, [basket])
 

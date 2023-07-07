@@ -24,7 +24,8 @@ export function Home () {
         userId,
         resent
     } = useContext(MainCtx);
-    const { sortPro } = useContext(UtilsCtx);
+    addsData.sort((a, b) => Math.random() - 0.5)
+    const { sortPro, getNumber } = useContext(UtilsCtx);
     const favGoods = sortPro(products).byPopular("down", true).data.slice(0, screen < 1064 ? 2 : 4);
     const newGoods = sortPro(products).byDate().data.slice(0, screen < 1064 ? 2 : 4);
     return <>

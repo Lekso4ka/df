@@ -2,8 +2,10 @@ import {useContext, useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import UtilsCtx from "../../context/utils";
 import MainCtx from "../../context/main";
+import Adds from "../Adds";
+import addsData from "../../assets/data/adds.json";
 const Info = (product) => {
-    const {setPrice, setRating, setStars, setCntWord} = useContext(UtilsCtx);
+    const {setPrice, setRating, setStars, setCntWord, getNumber} = useContext(UtilsCtx);
     const {userId, api, setProducts, setBasket, basket} = useContext(MainCtx);
     const [isLike, setIsLike] = useState(product.likes.includes(userId));
     const [cnt, setCnt] = useState(basket.filter(el => el._id === product._id)?.[0]?.cnt || 0);
@@ -122,6 +124,7 @@ const Info = (product) => {
                 >Купить</button>
             }
         </div>
+        <Adds {...addsData[getNumber(addsData.length)]}/>
     </div>
 }
 
