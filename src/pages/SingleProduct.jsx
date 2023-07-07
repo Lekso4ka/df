@@ -22,7 +22,7 @@ export function SingleProduct () {
                 setProduct(data);
                 setResent(prev => [data, ...prev.filter(el => el._id !== id)])
             })
-    }, [])
+    }, [id])
     return <>
         {product.name ? <Layout title={product.name} dt={2}>
             <div>

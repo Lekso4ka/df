@@ -188,6 +188,39 @@
 .form_product .form__row:nth-child(2) .form__lbl {
     order: -1;
 }
+.search__panel {
+    position: absolute;
+    top: 100%;
+    min-width: 100%;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    max-height: calc(12 * 2rem * 1.2 + 4rem);
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 2rem;
+}
+.search__block {
+    /*display: grid;*/
+    /*gap: 1rem;*/
+}
+.search__block_text {
+    grid-column-end: span 2;
+}
+.search__caption {
+    margin-bottom: .5rem;
+}
+.search__row {
+    width: max-content;
+    cursor: pointer;
+    opacity: .8;
+}
+.search__row:hover {
+    opacity: 1;
+}
 @media  screen and (min-width: 1064px) {
     .form_product .form__row:nth-child(2) {
         grid-row-end: span 4;
