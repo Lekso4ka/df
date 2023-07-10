@@ -117,6 +117,12 @@
       "title": "Image by rawpixel.com",
       "path": "https://www.freepik.com/free-vector/seamless-animal-pattern-background-cute-paw-print-vector-illustration_20266394.htm#query=pattern%20dog&position=7&from_view=search&track=ais",
       "as": "a"
+    },
+    {
+      "title": "NewsApi",
+      "path": "https://newsapi.org/docs",
+      "caption": true,
+      "as": "a"
     }
   ],
   "links_2": [

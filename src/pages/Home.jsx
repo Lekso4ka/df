@@ -13,7 +13,6 @@ import UtilsCtx from "../context/utils";
 import bannersData from "../assets/data/banners.json";
 import addsData from "../assets/data/adds.json";
 import Empty from "../components/Empty";
-// TODO: Добавить новости в футер
 
 export function Home () {
     const {

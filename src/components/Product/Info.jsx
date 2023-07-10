@@ -92,10 +92,14 @@ const Info = (product) => {
                     {product.available && product.stock >= 10 && <span>Много</span>}
                 </td>
             </tr>
-            {/* TODO: Перейти на страницу автора */}
             <tr>
                 <th>Поставщик:</th>
-                <td>{product.author.name}</td>
+                <td>
+                    <span
+                        className="product__link"
+                        onClick={() => navigate(`/provider/${product.author._id}`)}
+                    >{product.author.name}</span>
+                </td>
             </tr>
             </tbody>
         </table>

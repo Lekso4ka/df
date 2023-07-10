@@ -9,8 +9,6 @@ import Adds from "../components/Adds";
 import addsData from "../assets/data/adds.json"
 import MainCtx from "../context/main";
 
-// TODO: Перейти на страницу поставщика
-
 export function SingleProduct () {
     const {id} = useParams();
     const {api, setResent} = useContext(MainCtx);

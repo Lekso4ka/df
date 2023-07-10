@@ -34,3 +34,14 @@
 .filter__line:hover {
     opacity: 1;
 }
+.filter__icon {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background-color: white;
+    padding: 0 0 0 .5rem;
+    color: silver;
+}
+.filter__icon:hover {
+    color: black;
+}

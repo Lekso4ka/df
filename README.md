@@ -41,3 +41,4 @@
 + [Урок 31. Каталог товаров. Сортировка](https://youtu.be/3YCLAoAn3Yo)
 + [Урок 32. Каталог товаров. Доработка сортировки](https://youtu.be/8qWpM4Sif-A)
 + [Урок 33. Поиск по сайту](https://youtu.be/-c0wqf-8D9g)
++ [Урок 34. Страница поставщика. Часть 1](https://youtu.be/OARaHSevbGY)

@@ -154,6 +154,12 @@
 .product__reviews .layout_h-100 {
     height: auto;
 }
+.product__link {
+    cursor: pointer;
+}
+.product__link:hover {
+    text-decoration: underline;
+}
 @media screen and (min-width: 1064px) {
     .product__description {
         grid-column-end: span 2;

@@ -11,7 +11,8 @@ import {
     Products,
     Profile,
     SingleProduct,
-    Favorites
+    Favorites,
+    Author
 } from "./pages"
 import Main from "./context/main";
 import Utils, {initialValue as utilsVal} from "./context/utils";
@@ -155,6 +156,7 @@ function App() {
                     <Route path="/product/add" element={<AddProduct/>}/>
                     <Route path="/basket" element={<Basket/>}/>
                     <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/provider/:id" element={<Author/>}/>
                     <Route path="/auth" element={<Auth/>}/>
                     <Route path="/delivery" element={<Delivery/>}/>
                     <Route path="/about" element={<About/>}/>

@@ -30,3 +30,24 @@ ul {
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
+.user-table {
+    align-self: flex-start;
+}
+.user-table caption {
+    text-align: left;
+    font-size: 5rem;
+    font-weight: bold;
+    padding-bottom: 2rem;
+}
+.user-table th {
+    text-align: left;
+    color: grey;
+    font-weight: normal;
+    padding-right: 2rem;
+}
+.user-table .nav__item {
+    padding: 0;
+}
+.user-table .nav__link {
+    justify-content: flex-start;
+}

@@ -100,14 +100,13 @@ const Search = ({type = "main", state, attr}) => {
                         {el.name}
                     </div>)}
                 </div>}
-                {/* TODO: Переход на страницу автора */}
                 {fAuthors.length > 0 && <div className="search__block">
                     <h4 className="search__caption">Поставщики</h4>
                     {fAuthors.slice(0, 4).map(el => <div
                         key={el._id}
                         className="search__row"
                         onClick={() => {
-                            navigate(`/`);
+                            navigate(`/provider/${el._id}`);
                             clearHandler()
                         }}
                     >

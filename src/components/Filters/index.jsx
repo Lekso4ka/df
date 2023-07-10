@@ -1,6 +1,6 @@
 import {useContext, useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 
-import MainCtx from "../../context/main";
 import UtilsCtx from "../../context/utils";
 import {Search, Input, Switch} from "../Form";
 
@@ -11,7 +11,8 @@ const Filters = ({
     filterGoods,
     setFilterGoods
 }) => {
-    const {} = useContext(MainCtx);
+
+    const navigate = useNavigate();
     const {
         filterPro,
         getUniqueTags,
@@ -62,12 +63,6 @@ const Filters = ({
         if (search) {
             arr = filterPro(arr).byText(search).data;
         }
-        // if (!fMin) {
-        //     setFMin(min)
-        // }
-        // if (!fMax) {
-        //     setFMax(max)
-        // }
         if (fMin !== min || fMax !== max) {
             arr = filterPro(arr).byPrice(fMin, fMax).data;
         }
@@ -194,7 +189,16 @@ const Filters = ({
                     key={el._id}
                     className={`filter__line ${fAuthors.includes(el._id) ? "filter__line_active" : ""}`}
                     onClick={() => authorsHandler(el._id)}
-                >{el.name}</li>)}
+                >
+                    {el.name}
+                    <i
+                        className="filter__icon lni lni-enter"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/provider/${el._id}`);
+                        }}
+                    />
+                </li>)}
             </ul>
         </div>}
         <button onClick={clearFilters} className="form__btn">Сбросить фильтры</button>
